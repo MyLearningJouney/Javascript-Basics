@@ -1,1 +1,56 @@
-console.log ('oiii')
+var addBtn = document.querySelector("#confirm-activity");
+
+addBtn.addEventListener("click", function(event) {
+    event.preventDefault()
+    var list = document.querySelector("#activities-list");
+    var activity = getActivity(list);
+    addActivity(activity);
+});
+
+function getActivity(list){
+    var text = document.querySelector("#insert-activity")
+    activity = {
+        desc:text.value
+    }
+    return activity;
+}
+
+function createLi(activity) {
+    var activityLi = document.createElement("li");
+    activityLi.classList.add("active-activity");
+    activityLi.textContent = activity.desc;
+    activityLi.appendChild(createCompleteBtn());
+    activityLi.appendChild(createEditBtn());
+    activityLi.appendChild(createDelBtn());
+    return activityLi;
+}
+
+function createCompleteBtn(){
+    var addCompleteBtn = document.createElement("button");
+    addCompleteBtn.classList.add("btn-complete");
+    addCompleteBtn.classList.remove("invisible");
+    addCompleteBtn.textContent = "Complete";
+    return addCompleteBtn;
+}
+
+function createEditBtn(){
+    var addEditBtn = document.createElement("button");
+    addEditBtn.classList.add("btn-edit");
+    addEditBtn.classList.remove("invisible");
+    addEditBtn.textContent = "Edit";
+    return addEditBtn;
+}
+
+function createDelBtn(){
+    var addDelBtn = document.createElement("button");
+    addDelBtn.classList.add("btn-delete")
+    addDelBtn.classList.remove("invisible")
+    addDelBtn.textContent = "Delete"
+    return addDelBtn;
+}
+
+function addActivity(activity) {
+    var activityLi = createLi(activity);
+    var list = document.querySelector("#activities-scheduled");
+    list.appendChild(activityLi);
+}
