@@ -1,4 +1,4 @@
-var addBtn = document.querySelector("#confirm-activity");
+var addBtn = document.querySelector(".btn-confirm");
 
 addBtn.addEventListener("click", function(event) {
     event.preventDefault()
