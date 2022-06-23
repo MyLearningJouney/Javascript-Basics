@@ -7,6 +7,19 @@ body{
   background-color: #FDFFFA;
 }
 
+.todo-list{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+#activities-scheduled{
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+
 .invisible{
     display:none
 }
@@ -14,3 +27,4 @@ body{
 .completed{
   text-decoration: line-through
 }
+

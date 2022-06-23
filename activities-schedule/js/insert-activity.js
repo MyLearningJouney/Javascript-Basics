@@ -18,17 +18,24 @@ function getActivity(list){
 function createLi(activity) {
     var activityLi = document.createElement("li");
     activityLi.classList.add("active-activity");
-    activityLi.textContent = activity.desc;
+    activityLi.appendChild(createSpan(activity));
     activityLi.appendChild(createCompleteBtn());
     activityLi.appendChild(createEditBtn());
     activityLi.appendChild(createDelBtn());
     return activityLi;
 }
 
+function createSpan(activity){
+    var spanLi = document.createElement("span");
+    spanLi.classList.add("activity-text");
+    spanLi.textContent = activity.desc;
+    return spanLi;
+}
+
 function createCompleteBtn(){
     var addCompleteBtn = document.createElement("button");
     addCompleteBtn.classList.add("btn-complete");
-    addCompleteBtn.textContent = "Complete";
+    addCompleteBtn.appendChild('<i class="fa-solid fa-check"></i>')
     return addCompleteBtn;
 }
 

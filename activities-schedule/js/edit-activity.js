@@ -43,7 +43,11 @@ list.addEventListener("click", function(event) {
         button.classList.add('btn-edit')
         button.textContent = "Edit"
         var text = li.querySelector('.input-edit').value
-        li.textContent = text
+        var span = document.createElement('span');
+        span.classList.add("activity-text");
+        span.textContent = text
+        li.textContent = ''
+        li.appendChild(span);
         CreateButtons(li);
         console.log(text)
         return;
@@ -55,4 +59,3 @@ function CreateButtons(li){
     li.appendChild(createEditBtn());
     li.appendChild(createDelBtn());
 }
-
