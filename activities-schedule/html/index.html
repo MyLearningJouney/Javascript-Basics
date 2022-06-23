@@ -9,7 +9,7 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/activities-schedule/css/style.css" />
+    <link rel="stylesheet" href="/css/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   </head>
@@ -18,27 +18,19 @@
     <main>
       <section>
         <h2>Put your scheduled activities below:</h2>
-        <ul id="activities-scheduled">
-          <li id="activities-list">
-            <input
-              type="text"
-              name="insert-activity"
-              id="insert-activity"
-              placeholder="What you have to do today ?"
-            />
-            <button id="confirm-activity" class="btn-confirm">Add</button>
-            <button id="complete-activity" class="btn-complete invisible">
-              Complete
-            </button>
-            <button id="edit-activity" class="btn-edit invisible">Edit</button>
-            <button id="delete-activity" class="btn-delete invisible">
-              Delete
-            </button>
-          </li>
-        </ul>
+        <ul id="activities-scheduled"></ul>
+        <div id="activities-list">
+          <input
+            type="text"
+            name="insert-activity"
+            id="insert-activity"
+            placeholder="What you have to do today ?"
+          />
+          <button id="confirm-activity" class="btn-confirm">Add</button>
+        </div>
       </section>
     </main>
-    <script src="/activities-schedule/js/insert-activity.js"></script>
-    <script src="/activities-schedule/js/complete-activity.js"></script>
+    <script src="/js/edit-activity.js"></script>
+    <script src="/js/insert-activity.js"></script>
   </body>
 </html>

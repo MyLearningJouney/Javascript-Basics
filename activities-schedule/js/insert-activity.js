@@ -28,7 +28,6 @@ function createLi(activity) {
 function createCompleteBtn(){
     var addCompleteBtn = document.createElement("button");
     addCompleteBtn.classList.add("btn-complete");
-    addCompleteBtn.classList.remove("invisible");
     addCompleteBtn.textContent = "Complete";
     return addCompleteBtn;
 }
@@ -36,7 +35,6 @@ function createCompleteBtn(){
 function createEditBtn(){
     var addEditBtn = document.createElement("button");
     addEditBtn.classList.add("btn-edit");
-    addEditBtn.classList.remove("invisible");
     addEditBtn.textContent = "Edit";
     return addEditBtn;
 }
@@ -44,7 +42,6 @@ function createEditBtn(){
 function createDelBtn(){
     var addDelBtn = document.createElement("button");
     addDelBtn.classList.add("btn-delete")
-    addDelBtn.classList.remove("invisible")
     addDelBtn.textContent = "Delete"
     return addDelBtn;
 }
