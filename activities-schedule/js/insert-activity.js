@@ -33,9 +33,8 @@ function createSpan(activity){
 }
 
 function createCompleteBtn(){
-    var addCompleteBtn = document.createElement("button");
-    addCompleteBtn.classList.add("btn-complete");
-    addCompleteBtn.appendChild('<i class="fa-solid fa-check"></i>')
+    var addCompleteBtn = document.createElement("i");
+    addCompleteBtn.className = 'fa-solid fa-check';
     return addCompleteBtn;
 }
 
