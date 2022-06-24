@@ -39,16 +39,14 @@ function createCompleteBtn(){
 }
 
 function createEditBtn(){
-    var addEditBtn = document.createElement("button");
-    addEditBtn.classList.add("btn-edit");
-    addEditBtn.textContent = "Edit";
+    var addEditBtn = document.createElement("i");
+    addEditBtn.className = 'fa-solid fa-pencil'
     return addEditBtn;
 }
 
 function createDelBtn(){
-    var addDelBtn = document.createElement("button");
-    addDelBtn.classList.add("btn-delete")
-    addDelBtn.textContent = "Delete"
+    var addDelBtn = document.createElement("i");
+    addDelBtn.className = 'fa-solid fa-trash'
     return addDelBtn;
 }
 

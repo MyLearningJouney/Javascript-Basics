@@ -1,41 +1,41 @@
-var list = document.querySelector("#activities-scheduled");
+let list = document.querySelector("#activities-scheduled");
 
 list.addEventListener("click", function(event) {
     event.preventDefault();
-    var i = event.target;
+    let i = event.target;
     //var button = i.parentNode;
-    var li = i.parentNode;
-    var ul = li.parentNode;
+    let li = i.parentNode;
+    let ul = li.parentNode;
     console.log(event.target)
 
-    if(event.target.className == 'btn-delete'){
+    if(event.target.className === 'fa-solid fa-trash'){
         ul.removeChild(li);
         return;
     }
 
     if(event.target.className === 'fa-solid fa-check'){
-        var span = li.querySelector('.activity-text');
-        var icon = li.querySelectorAll('.fa-solid fa-check');
+        let span = li.querySelector('.activity-text');
         i.className = 'fa-solid fa-x';
-        //button.textContent = "Uncheck"
-        //span.classList.add("completed")
-        li.querySelector('.btn-edit').remove()
+        span.classList.add("completed")
+        icons = li.querySelectorAll('i')
+        icons[1].remove();
+        icons[2].remove();
+        
         return;
     }
 
-    if(event.target.className == 'btn-uncheck'){
-        li.querySelector('.btn-uncheck').remove()
-        li.querySelector('.btn-delete').remove()
-        li.classList.remove("completed")
-        CreateButtons(li);
+    if(event.target.className == 'fa-solid fa-x'){
+        let span = li.querySelector('.activity-text');
+        i.className = 'fa-solid fa-check';
+        span.classList.remove("completed")
+        li.appendChild(createEditBtn());
+        li.appendChild(createDelBtn());
         return;
     }
 
-    if(event.target.className == 'btn-edit'){
-        button.classList.remove('btn-edit')
-        button.classList.add('btn-edit-confirm')
-        button.textContent = "Confirm"
+    if(event.target.className === 'fa-solid fa-pencil'){
         var input = document.createElement("input");
+        li.querySelector('.btn-edit').remove();
         input.classList.add("input-edit")
         li.append(input);
         return;
