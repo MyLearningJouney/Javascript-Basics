@@ -17,7 +17,7 @@ list.addEventListener("click", function(event) {
         i.className = 'fa-solid fa-x';
         span.classList.add("completed")
         li.getElementsByClassName('fa-solid fa-pencil')[0].remove();
-        li.getElementsByClassName('fa-solid fa-trash')[0].remove();  
+        li.getElementsByClassName('fa-solid fa-trash')[0].remove(); 
         return;
     }
 
