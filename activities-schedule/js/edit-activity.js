@@ -3,7 +3,6 @@ let list = document.querySelector("#activities-scheduled");
 list.addEventListener("click", function(event) {
     event.preventDefault();
     let i = event.target;
-    //var button = i.parentNode;
     let li = i.parentNode;
     let ul = li.parentNode;
     console.log(event.target)
@@ -17,10 +16,8 @@ list.addEventListener("click", function(event) {
         let span = li.querySelector('.activity-text');
         i.className = 'fa-solid fa-x';
         span.classList.add("completed")
-        icons = li.querySelectorAll('i')
-        icons[1].remove();
-        icons[2].remove();
-        
+        li.getElementsByClassName('fa-solid fa-pencil')[0].remove();
+        li.getElementsByClassName('fa-solid fa-trash')[0].remove();  
         return;
     }
 
