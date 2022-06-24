@@ -61,6 +61,8 @@ list.addEventListener("click", function(event) {
 
     if(event.target.className == 'fa-solid fa-x cancel-edit'){
         let input = li.querySelector('.input-edit')
+        let span = li.querySelector('.activity-text');
+        span.classList.remove('invisible')
         li.removeChild(input)
         li.getElementsByClassName('fa-solid fa-check confirm-edit')[0].remove();
         li.getElementsByClassName('fa-solid fa-x cancel-edit')[0].remove();
