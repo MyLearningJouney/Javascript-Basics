@@ -34,8 +34,10 @@ list.addEventListener("click", function(event) {
         li.getElementsByClassName('fa-solid fa-check')[0].remove();
         li.getElementsByClassName('fa-solid fa-pencil')[0].remove();
         li.getElementsByClassName('fa-solid fa-trash')[0].remove();
-        var input = document.createElement("input");
+        let input = document.createElement("input");
+        let span = li.querySelector('.activity-text').textContent;
         input.classList.add("input-edit")
+        input.setAttribute('placeholder',span)
         li.append(input);
         li.appendChild(createConfirmEditBtn());
         li.appendChild(createCancelEditBtn());
@@ -43,8 +45,8 @@ list.addEventListener("click", function(event) {
     }
 
     if(event.target.className == 'fa-solid fa-check confirm-edit'){
-        var text = li.querySelector('.input-edit').value
-        var span = document.createElement('span');
+        let text = li.querySelector('.input-edit').value
+        let span = document.createElement('span');
         span.classList.add("activity-text");
         span.textContent = text
         li.textContent = ''
@@ -57,7 +59,7 @@ list.addEventListener("click", function(event) {
     }
 
     if(event.target.className == 'fa-solid fa-x cancel-edit'){
-        var input = li.querySelector('.input-edit')
+        let input = li.querySelector('.input-edit')
         li.removeChild(input)
         li.getElementsByClassName('fa-solid fa-check confirm-edit')[0].remove();
         li.getElementsByClassName('fa-solid fa-x cancel-edit')[0].remove();
