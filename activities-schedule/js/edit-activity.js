@@ -1,61 +1,88 @@
-var list = document.querySelector("#activities-scheduled");
+let list = document.querySelector("#activities-scheduled");
 
 list.addEventListener("click", function(event) {
     event.preventDefault();
-    var button = event.target;
-    var li = button.parentNode;
-    var ul = li.parentNode;
+    let i = event.target;
+    let li = i.parentNode;
+    let ul = li.parentNode;
+    console.log(event.target)
 
-    if(event.target.className == 'btn-delete'){
+    if(event.target.className === 'fa-solid fa-trash'){
         ul.removeChild(li);
         return;
     }
 
-    if(event.target.className == 'btn-complete'){
-        button.classList.remove('btn-complete')
-        button.classList.add("btn-uncheck")
-        button.textContent = "Uncheck"
-        li.classList.add("completed")
-        li.querySelector('.btn-edit').remove()
+    if(event.target.className === 'fa-solid fa-check'){
+        let span = li.querySelector('.activity-text');
+        i.className = 'fa-solid fa-x';
+        span.classList.add("completed")
+        li.getElementsByClassName('fa-solid fa-pencil')[0].remove();
+        li.getElementsByClassName('fa-solid fa-trash')[0].remove(); 
         return;
     }
 
-    if(event.target.className == 'btn-uncheck'){
-        li.querySelector('.btn-uncheck').remove()
-        li.querySelector('.btn-delete').remove()
-        li.classList.remove("completed")
-        CreateButtons(li);
+    if(event.target.className == 'fa-solid fa-x'){
+        let span = li.querySelector('.activity-text');
+        i.className = 'fa-solid fa-check';
+        span.classList.remove("completed")
+        li.appendChild(createEditBtn());
+        li.appendChild(createDelBtn());
         return;
     }
 
-    if(event.target.className == 'btn-edit'){
-        button.classList.remove('btn-edit')
-        button.classList.add('btn-edit-confirm')
-        button.textContent = "Confirm"
-        var input = document.createElement("input");
+    if(event.target.className === 'fa-solid fa-pencil'){
+        li.getElementsByClassName('fa-solid fa-check')[0].remove();
+        li.getElementsByClassName('fa-solid fa-pencil')[0].remove();
+        li.getElementsByClassName('fa-solid fa-trash')[0].remove();
+        let input = document.createElement("input");
+        let span = li.querySelector('.activity-text');
         input.classList.add("input-edit")
+        input.setAttribute('placeholder',span.textContent)
+        span.classList.add('invisible')
         li.append(input);
+        li.appendChild(createConfirmEditBtn());
+        li.appendChild(createCancelEditBtn());
         return;
     }
 
-    if(event.target.className == 'btn-edit-confirm'){
-        button.classList.remove('btn-edit-confirm')
-        button.classList.add('btn-edit')
-        button.textContent = "Edit"
-        var text = li.querySelector('.input-edit').value
-        var span = document.createElement('span');
+    if(event.target.className == 'fa-solid fa-check confirm-edit'){
+        let text = li.querySelector('.input-edit').value
+        let span = document.createElement('span');
         span.classList.add("activity-text");
         span.textContent = text
         li.textContent = ''
         li.appendChild(span);
-        CreateButtons(li);
+        li.appendChild(createCompleteBtn());
+        li.appendChild(createEditBtn());
+        li.appendChild(createDelBtn());
         console.log(text)
+        return;
+    }
+
+    if(event.target.className == 'fa-solid fa-x cancel-edit'){
+        let input = li.querySelector('.input-edit')
+        let span = li.querySelector('.activity-text');
+        span.classList.remove('invisible')
+        li.removeChild(input)
+        li.getElementsByClassName('fa-solid fa-check confirm-edit')[0].remove();
+        li.getElementsByClassName('fa-solid fa-x cancel-edit')[0].remove();
+        li.appendChild(createCompleteBtn());
+        li.appendChild(createEditBtn());
+        li.appendChild(createDelBtn());
         return;
     }
 });
 
-function CreateButtons(li){
-    li.appendChild(createCompleteBtn());
-    li.appendChild(createEditBtn());
-    li.appendChild(createDelBtn());
+function createConfirmEditBtn(){
+    var addConfirmEditBtn = document.createElement("i");
+    addConfirmEditBtn.className = 'fa-solid fa-check'
+    addConfirmEditBtn.classList.add('confirm-edit')
+    return addConfirmEditBtn;
+}
+
+function createCancelEditBtn(){
+    var addCancelEditBtn = document.createElement("i");
+    addCancelEditBtn.className = 'fa-solid fa-x'
+    addCancelEditBtn.classList.add('cancel-edit')
+    return addCancelEditBtn;
 }
