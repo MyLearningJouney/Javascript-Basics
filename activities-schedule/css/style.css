@@ -21,7 +21,7 @@ body{
 
 
 .invisible{
-    display:none
+    visibility:hidden;
 }
 
 .completed{

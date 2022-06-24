@@ -31,31 +31,53 @@ list.addEventListener("click", function(event) {
     }
 
     if(event.target.className === 'fa-solid fa-pencil'){
+        li.getElementsByClassName('fa-solid fa-check')[0].remove();
+        li.getElementsByClassName('fa-solid fa-pencil')[0].remove();
+        li.getElementsByClassName('fa-solid fa-trash')[0].remove();
         var input = document.createElement("input");
-        li.querySelector('.btn-edit').remove();
         input.classList.add("input-edit")
         li.append(input);
+        li.appendChild(createConfirmEditBtn());
+        li.appendChild(createCancelEditBtn());
         return;
     }
 
-    if(event.target.className == 'btn-edit-confirm'){
-        button.classList.remove('btn-edit-confirm')
-        button.classList.add('btn-edit')
-        button.textContent = "Edit"
+    if(event.target.className == 'fa-solid fa-check confirm-edit'){
         var text = li.querySelector('.input-edit').value
         var span = document.createElement('span');
         span.classList.add("activity-text");
         span.textContent = text
         li.textContent = ''
         li.appendChild(span);
-        CreateButtons(li);
+        li.appendChild(createCompleteBtn());
+        li.appendChild(createEditBtn());
+        li.appendChild(createDelBtn());
         console.log(text)
+        return;
+    }
+
+    if(event.target.className == 'fa-solid fa-x cancel-edit'){
+        var input = li.querySelector('.input-edit')
+        li.removeChild(input)
+        li.getElementsByClassName('fa-solid fa-check confirm-edit')[0].remove();
+        li.getElementsByClassName('fa-solid fa-x cancel-edit')[0].remove();
+        li.appendChild(createCompleteBtn());
+        li.appendChild(createEditBtn());
+        li.appendChild(createDelBtn());
         return;
     }
 });
 
-function CreateButtons(li){
-    li.appendChild(createCompleteBtn());
-    li.appendChild(createEditBtn());
-    li.appendChild(createDelBtn());
+function createConfirmEditBtn(){
+    var addConfirmEditBtn = document.createElement("i");
+    addConfirmEditBtn.className = 'fa-solid fa-check'
+    addConfirmEditBtn.classList.add('confirm-edit')
+    return addConfirmEditBtn;
+}
+
+function createCancelEditBtn(){
+    var addCancelEditBtn = document.createElement("i");
+    addCancelEditBtn.className = 'fa-solid fa-x'
+    addCancelEditBtn.classList.add('cancel-edit')
+    return addCancelEditBtn;
 }
