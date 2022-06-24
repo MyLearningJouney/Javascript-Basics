@@ -85,10 +85,17 @@ i.fa-solid.fa-x{
   color:#933b27;
 }
 
+.input-edit{
+  width: 70%;
+  border-radius: 5px;
+  border-style: solid;
+  border-color: #EEE;
+  border-width: 1.5px;
+}
 
 
 .invisible{
-    visibility:hidden;
+    display:none;
 }
 
 .completed{

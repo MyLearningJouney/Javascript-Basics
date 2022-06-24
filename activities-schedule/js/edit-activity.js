@@ -35,9 +35,10 @@ list.addEventListener("click", function(event) {
         li.getElementsByClassName('fa-solid fa-pencil')[0].remove();
         li.getElementsByClassName('fa-solid fa-trash')[0].remove();
         let input = document.createElement("input");
-        let span = li.querySelector('.activity-text').textContent;
+        let span = li.querySelector('.activity-text');
         input.classList.add("input-edit")
-        input.setAttribute('placeholder',span)
+        input.setAttribute('placeholder',span.textContent)
+        span.classList.add('invisible')
         li.append(input);
         li.appendChild(createConfirmEditBtn());
         li.appendChild(createCancelEditBtn());
