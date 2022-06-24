@@ -18,31 +18,35 @@ function getActivity(list){
 function createLi(activity) {
     var activityLi = document.createElement("li");
     activityLi.classList.add("active-activity");
-    activityLi.textContent = activity.desc;
+    activityLi.appendChild(createSpan(activity));
     activityLi.appendChild(createCompleteBtn());
     activityLi.appendChild(createEditBtn());
     activityLi.appendChild(createDelBtn());
     return activityLi;
 }
 
+function createSpan(activity){
+    var spanLi = document.createElement("span");
+    spanLi.classList.add("activity-text");
+    spanLi.textContent = activity.desc;
+    return spanLi;
+}
+
 function createCompleteBtn(){
-    var addCompleteBtn = document.createElement("button");
-    addCompleteBtn.classList.add("btn-complete");
-    addCompleteBtn.textContent = "Complete";
+    var addCompleteBtn = document.createElement("i");
+    addCompleteBtn.className = 'fa-solid fa-check';
     return addCompleteBtn;
 }
 
 function createEditBtn(){
-    var addEditBtn = document.createElement("button");
-    addEditBtn.classList.add("btn-edit");
-    addEditBtn.textContent = "Edit";
+    var addEditBtn = document.createElement("i");
+    addEditBtn.className = 'fa-solid fa-pencil'
     return addEditBtn;
 }
 
 function createDelBtn(){
-    var addDelBtn = document.createElement("button");
-    addDelBtn.classList.add("btn-delete")
-    addDelBtn.textContent = "Delete"
+    var addDelBtn = document.createElement("i");
+    addDelBtn.className = 'fa-solid fa-trash'
     return addDelBtn;
 }
 
