@@ -5,7 +5,6 @@ list.addEventListener("click", function(event) {
     let i = event.target;
     let li = i.parentNode;
     let ul = li.parentNode;
-    console.log(event.target)
 
     if(event.target.className === 'fa-solid fa-trash'){
         ul.removeChild(li);
@@ -55,7 +54,6 @@ list.addEventListener("click", function(event) {
         li.appendChild(createCompleteBtn());
         li.appendChild(createEditBtn());
         li.appendChild(createDelBtn());
-        console.log(text)
         return;
     }
 

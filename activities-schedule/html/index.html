@@ -9,7 +9,7 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/activities-schedule/css/style.css" />
+    <link rel="stylesheet" href="/css/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <script
@@ -23,18 +23,18 @@
       <section class="todo-list">
         <h2>Put your scheduled activities below:</h2>
         <ul id="activities-scheduled"></ul>
-        <div id="activities-list">
+        <div class="activities-input">
           <input
             type="text"
             name="insert-activity"
             id="insert-activity"
             placeholder="What you have to do today ?"
           />
-          <button id="confirm-activity" class="btn-confirm">Add</button>
+          <i id="confirm-activity" class="fa-solid fa-check"></i>
         </div>
       </section>
     </main>
-    <script src="/activities-schedule/js/insert-activity.js"></script>
-    <script src="/activities-schedule/js/edit-activity.js"></script>
+    <script src="/js/insert-activity.js"></script>
+    <script src="/js/edit-activity.js"></script>
   </body>
 </html>
