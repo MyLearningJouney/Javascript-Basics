@@ -6,7 +6,7 @@ class Activity{                                             //Here is the activi
     constructor(activity) {
 
         this.#activity = activity
-        this.#date = new (Date)
+        this.#date = '10/10/2022'
 
      }
 
@@ -15,6 +15,6 @@ class Activity{                                             //Here is the activi
      }
 
      get date(){
-        return this.#date.now();
+        return this.#date;
      }
 }

@@ -8,13 +8,17 @@ class ActivityController {                             //Here is the ActivityCon
         let $ = document.querySelector.bind(document); //create this variable to optmize the code writing, we need to bind querySelector
         this.#inputActivity = $('#insert-list');       //to document to make sure that querySelector points to document. 
         this.#activitiesList = new ActivityList();     //Create new instance to Activity List
+        this.activityView = new ActivityView($('#todolistView'));
+        this.activityView.update(this.#activitiesList);
     }
 
 
     insertActivity (event){                                         //At the submit event on form, this block will run
         event.preventDefault();                                     //Prevent the Default browser behavior
         this.#activitiesList.addActivity(this.createActivity())     //add to activitiesList a new instance of Activity Object
-        console.log(this.#activitiesList.activities);
+        this.activityView.update(this.#activitiesList);
+        console.log(this.#activitiesList)
+
     }
 
     createActivity(){

@@ -1,22 +1,32 @@
+class ActivityView{
+    #element
 
+    constructor(element){
+        this.#element = element
+    }
 
-
-
-
-
-
-
-
-/*
-          <li>
+    template(model){
+        return `
+        <li>
             <div>
-              <span>Atividade</span>
-              <span>Data</span>
+                ${
+                    model.activities.map((n) => {
+                        return `
+                        <span>${n.activity}</span>
+                        <span>${n.date}</span>
+                        `
+                })}
             </div>
             <div>
-              <i class="fa-solid fa-check"></i>
-              <i class="fa-solid fa-pencil"></i>
-              <i class="fa-solid fa-trash"></i>
+                <i class="fa-solid fa-check"></i>
+                <i class="fa-solid fa-pencil"></i>
+                <i class="fa-solid fa-trash"></i>
             </div>
-          </li>
-*/
+      </li>
+     `;
+    }
+
+    update(model){
+        this.#element.innerHTML = this.template(model);
+    }
+}
