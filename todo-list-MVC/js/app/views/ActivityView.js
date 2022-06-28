@@ -10,12 +10,12 @@ class ActivityView{                                                             
         return`                                                                         
         ${ActivityList.activities.map((n) => {
             return ` 
-                    <li>
-                        <div>
-                            <span>${n.activity}</span>
-                            <span>${n.date}</span>
+                    <li class=listItem>
+                        <div class="listTextWrapper">
+                            <span class="listActivity">${n.activity}</span>
+                            <span class="listDate">${n.date}</span>
                         </div>
-                        <div>
+                        <div class="listBtnWrapper">
                             <i class="fa-solid fa-check"></i>
                             <i class="fa-solid fa-pencil"></i>
                             <i class="fa-solid fa-trash"></i>

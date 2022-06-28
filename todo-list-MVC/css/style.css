@@ -1,0 +1,73 @@
+*{
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  h1{
+    display: flex;
+    justify-content: center;
+  }
+  
+  body{
+    margin:0;
+    background-color: #FDFFFA;
+  }
+
+  #todolistView{
+    display: flex;
+    justify-content: center;
+  }
+
+  form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #todolist{
+    width: 50%;
+  }
+
+  .listItem{
+    display: flex;
+    padding: 15px 0;
+    background-color: #FFF;
+    border-radius: 5px;
+    filter: drop-shadow(1px 5px 6px rgba(187, 187, 187, 0.8));
+    margin: 15px 0;
+  }
+
+  .listTextWrapper{
+    width:85%;
+  }
+
+  .listActivity{
+    display:flex;
+    margin-left: 15px;
+  }
+
+  .listDate{
+    display:flex;
+    font-size:12px;
+    margin-left: 15px
+  }
+  .listBtnWrapper{
+    width: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .fa-solid.fa-check{
+    display:flex;
+    width:33%;
+  }
+
+  .fa-solid.fa-pencil{
+    display:flex;
+    width:33%;
+  }
+
+  .fa-solid.fa-trash{
+    display:flex;
+    width:33%;
+  }
