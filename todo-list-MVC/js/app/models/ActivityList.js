@@ -1,4 +1,4 @@
-class ActivityList{
+class ActivityList{                                             //Here is the ActivityList Model, basically how the is the To-do List
 
     #activities;
 

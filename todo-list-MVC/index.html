@@ -12,21 +12,9 @@
     </header>
     <section>
       <div id="todolistView">
-        <ul id="todolist">
-          <li>
-            <div>
-              <span>Atividade</span>
-              <span>Data</span>
-            </div>
-            <div>
-              <i class="fa-solid fa-check"></i>
-              <i class="fa-solid fa-pencil"></i>
-              <i class="fa-solid fa-trash"></i>
-            </div>
-          </li>
-        </ul>
+        <ul id="todolist"></ul>
       </div>
-      <form class="form" onsubmit="ActivityController.insertActivity(event)">
+      <form class="form" onsubmit="ac.insertActivity(event)">
         <div>
           <input
             type="text"
@@ -44,12 +32,12 @@
       src="https://kit.fontawesome.com/25f73b9bfe.js"
       crossorigin="anonymous"
     ></script>
-    <script src="/js/app/models/Activity.js"></script>
-    <script src="/js/app/controllers/ActivityController.js"></script>
-    <script src="/js/app/models/ActivityList.js"></script>
-    <script src="/js/app/views/ActivityView.js"></script>
+    <script src="/todo-list-MVC/js/app/models/Activity.js"></script>
+    <script src="/todo-list-MVC/js/app/controllers/ActivityController.js"></script>
+    <script src="/todo-list-MVC/js/app/models/ActivityList.js"></script>
+    <script src="/todo-list-MVC/js/app/views/ActivityView.js"></script>
     <script>
-      let ActivityController = new ActivityController();
+      let ac = new ActivityController();
     </script>
   </body>
 </html>
