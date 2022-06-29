@@ -49,7 +49,18 @@
     display:flex;
     font-size:12px;
     margin-left: 15px
+    
   }
+
+  .dateCompleted::before{
+    display:flex;
+    font-size:12px;
+    margin-right: 3px;
+    content: 'Completed at';
+  }
+  
+
+  
   .listBtnWrapper{
     width: 15%;
     display: flex;

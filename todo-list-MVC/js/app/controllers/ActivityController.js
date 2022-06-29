@@ -10,7 +10,8 @@ class ActivityController {                                          //Here is th
         this.#activitiesList = new ActivityList();                  //Create new instance to Activity List
         this.activityView = new ActivityView($('#todolist'));       //New instace to Activity View, passing the UL id to identifies where the view will show
         let list = $('#todolistView');
-        this.#activitiesList.completeActivity(list);
+        this.#activitiesList.btnActivity(list);
+
 
     }
 
