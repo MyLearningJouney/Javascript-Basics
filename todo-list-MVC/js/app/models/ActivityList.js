@@ -19,9 +19,9 @@ class ActivityList{                                             //Here is the Ac
             let btnWrapper = icon.parentNode;
             let li = btnWrapper.parentNode;
             let span = li.querySelector(".listActivity")
-            if(icon.className === 'fa-solid fa-check')
-            span.classList.add("completed")
-            
+            if(icon.className === 'fa-solid fa-check'){
+                span.classList.add("completed")
+            }
         });
     }
 

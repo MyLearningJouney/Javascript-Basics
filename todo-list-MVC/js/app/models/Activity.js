@@ -19,4 +19,8 @@ class Activity{                                             //Here is the activi
         - ${this.#date.toLocaleString('en-us', {  weekday: 'long' })} at 
           ${this.#date.getHours()}: ${this.#date.getMinutes()}`
      };  
+
+     set date(date){
+        return this.#date = date
+     };
 }
