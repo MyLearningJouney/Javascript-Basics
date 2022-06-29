@@ -6,7 +6,7 @@ class Activity{                                             //Here is the activi
     constructor(activity) {
 
         this.#activity = activity
-        this.#date = '10/10/2022'
+        this.#date = new Date(Date.now());
 
      }
 
@@ -15,6 +15,8 @@ class Activity{                                             //Here is the activi
      }
 
      get date(){
-        return this.#date;
-     }
+        return `${this.#date.getDate()}/${this.#date.getMonth()}/${this.#date.getFullYear()} 
+        - ${this.#date.toLocaleString('en-us', {  weekday: 'long' })} at 
+          ${this.#date.getHours()}: ${this.#date.getMinutes()}`
+     };  
 }

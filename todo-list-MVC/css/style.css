@@ -71,3 +71,7 @@
     display:flex;
     width:33%;
   }
+
+  .completed{
+    text-decoration: line-through
+  }
