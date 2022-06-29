@@ -72,6 +72,15 @@
     width:33%;
   }
 
+  .fa-solid.fa-x{
+    display:flex;
+    width:33%;
+  }
+
   .completed{
     text-decoration: line-through
+  }
+
+  .invisible{
+    visibility:hidden;
   }

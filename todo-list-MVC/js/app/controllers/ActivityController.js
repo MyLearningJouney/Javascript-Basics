@@ -9,7 +9,6 @@ class ActivityController {                                          //Here is th
         this.#inputActivity = $('#insert-list');                    //to document to make sure that querySelector points to document. 
         this.#activitiesList = new ActivityList();                  //Create new instance to Activity List
         this.activityView = new ActivityView($('#todolist'));       //New instace to Activity View, passing the UL id to identifies where the view will show
-        this.activityView.update(this.#activitiesList);             //Update the Activities List to make sure that only new entries will show. 
         let list = $('#todolistView');
         this.#activitiesList.completeActivity(list);
 
@@ -20,6 +19,7 @@ class ActivityController {                                          //Here is th
         event.preventDefault();                                     //Prevent the Default browser behavior
         this.#activitiesList.addActivity(this.createActivity())     //add to activitiesList Model a new Activity Object, using the CreateActivity method from Controller
         this.activityView.update(this.#activitiesList);             //Update the List in every event detection. In this case, on every submit. 
+        //console.log(document.querySelector('#todolist'))
     }
 
 
