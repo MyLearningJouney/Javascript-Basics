@@ -28,7 +28,10 @@ class ActivityList{                                             //Here is the Ac
                 date.classList.add("dateCompleted")
                 date.classList.remove("hide")
                 createdDate.classList.add("hide")
-                date.textContent = new Date(Date.now())
+                var completedDate = new Date(Date.now())
+                date.textContent = `${completedDate.getDate()}/${completedDate.getMonth()}/${completedDate.getFullYear()} 
+                - ${completedDate.toLocaleString('en-us', {  weekday: 'long' })} at 
+                  ${completedDate.getHours()}: ${completedDate.getMinutes()}`
                 icon.className = 'fa-solid fa-x'
                 btnWrapper.querySelector(".fa-solid.fa-pencil").classList.add("invisible")
                 btnWrapper.querySelector(".fa-solid.fa-trash").classList.add("invisible")
@@ -47,6 +50,12 @@ class ActivityList{                                             //Here is the Ac
             
         });
     }
+
+    formatCompleteDate(date){
+        return `${date.getDate()}/${date.getMonth()}/${date.getFullYear()} 
+      - ${date.toLocaleString('en-us', {  weekday: 'long' })} at 
+        ${date.getHours()}: ${date.getMinutes()}
+    `}
 
 
 
