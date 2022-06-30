@@ -1,6 +1,6 @@
 class ActivityController {                                          //Here is the ActivityController, here i define how the model will work inside
                                                                     //and how it will comunicate the model with the view. 
-    #inputActivity;#activitiesList;;                                //And here i put this variables in private mode for security. 
+    #inputActivity;#activitiesList;                                //And here i put this variables in private mode for security. 
                          
 
     constructor(){
@@ -12,7 +12,6 @@ class ActivityController {                                          //Here is th
         let list = $('#todolistView');
         this.#activitiesList.btnActivity(list);
 
-
     }
 
 
@@ -20,7 +19,6 @@ class ActivityController {                                          //Here is th
         event.preventDefault();                                     //Prevent the Default browser behavior
         this.#activitiesList.addActivity(this.createActivity())     //add to activitiesList Model a new Activity Object, using the CreateActivity method from Controller
         this.activityView.update(this.#activitiesList);             //Update the List in every event detection. In this case, on every submit. 
-        //console.log(document.querySelector('#todolist'))
     }
 
 

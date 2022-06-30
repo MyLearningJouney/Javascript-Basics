@@ -10,7 +10,9 @@ class ActivityList{                                             //Here is the Ac
 
     addActivity(activity){
         this.#activities.push(activity)
+        //let createdDate = new DateHelper(activity.date)
     }
+
 
     btnActivity(list){
         list.addEventListener("click", function(event){
@@ -19,12 +21,14 @@ class ActivityList{                                             //Here is the Ac
             let btnWrapper = icon.parentNode;
             let li = btnWrapper.parentNode;
             let activity = li.querySelector(".listActivity")
-            let data = li.querySelector(".listDate")
+            let date = li.querySelector(".listDate")
+            let createdDate = li.querySelector(".listCreatedDate")
             if(icon.className === 'fa-solid fa-check'){
-                var createdDate = li.querySelector(".listDate").textContent;
                 activity.classList.add("completed")
-                data.classList.add("dateCompleted")
-                data.textContent = new Date(Date.now())
+                date.classList.add("dateCompleted")
+                date.classList.remove("hide")
+                createdDate.classList.add("hide")
+                date.textContent = new Date(Date.now())
                 icon.className = 'fa-solid fa-x'
                 btnWrapper.querySelector(".fa-solid.fa-pencil").classList.add("invisible")
                 btnWrapper.querySelector(".fa-solid.fa-trash").classList.add("invisible")
@@ -32,9 +36,9 @@ class ActivityList{                                             //Here is the Ac
             }
             if(icon.className === 'fa-solid fa-x'){
                 activity.classList.remove("completed")
-                data.classList.remove("dateCompleted")
-                console.log(createdDate)
-                //data.textContent = createdDate;
+                date.classList.remove("dateCompleted")
+                date.classList.add("hide")
+                createdDate.classList.remove("hide")
                 icon.className = 'fa-solid fa-check'
                 btnWrapper.querySelector(".fa-solid.fa-pencil").classList.remove("invisible")
                 btnWrapper.querySelector(".fa-solid.fa-trash").classList.remove("invisible")
@@ -45,9 +49,11 @@ class ActivityList{                                             //Here is the Ac
     }
 
 
+
     get activities(){
         return this.#activities;
     }
+
     
     
 

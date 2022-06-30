@@ -52,6 +52,12 @@
     
   }
 
+  .listCreatedDate{
+    display:flex;
+    font-size:12px;
+    margin-left: 15px
+  }
+
   .dateCompleted::before{
     display:flex;
     font-size:12px;
@@ -94,4 +100,8 @@
 
   .invisible{
     visibility:hidden;
+  }
+
+  .hide{
+    display:none;
   }
