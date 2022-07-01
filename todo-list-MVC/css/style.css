@@ -29,7 +29,7 @@
 
   .listItem{
     display: flex;
-    padding: 15px 0;
+    padding: 15px;
     background-color: #FFF;
     border-radius: 5px;
     filter: drop-shadow(1px 5px 6px rgba(187, 187, 187, 0.8));
@@ -42,7 +42,6 @@
 
   .listActivity{
     display:flex;
-    margin-left: 15px;
     padding: 5px 0;
     margin-bottom: 5px;
   }
@@ -50,14 +49,12 @@
   .listDate{
     display:flex;
     font-size:12px;
-    margin-left: 15px
     
   }
 
   .listCreatedDate{
     display:flex;
     font-size:12px;
-    margin-left: 15px
   }
 
   .dateCompleted::before{
@@ -79,21 +76,25 @@
   .fa-solid.fa-check{
     display:flex;
     width:33%;
+    justify-content:center;
   }
 
   .fa-solid.fa-pencil{
     display:flex;
     width:33%;
+    justify-content:center;
   }
 
   .fa-solid.fa-trash{
     display:flex;
     width:33%;
+    justify-content:center;
   }
 
   .fa-solid.fa-x{
     display:flex;
     width:33%;
+    justify-content:center;
   }
 
   .completed{
@@ -110,7 +111,6 @@
 
   #edit-input{
     display: flex;
-    margin-left: 15px;
     font-size: 16px;
     width: 90%;
     padding: 5px;
