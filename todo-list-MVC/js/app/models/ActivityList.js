@@ -13,7 +13,6 @@ class ActivityList{                                             //Here is the Ac
         //let createdDate = new DateHelper(activity.date)
     }
 
-
     btnActivity(list){
         list.addEventListener("click", function(event){
             event.preventDefault();
@@ -26,7 +25,8 @@ class ActivityList{                                             //Here is the Ac
             let createdDate = li.querySelector(".listCreatedDate")
             let editHelper = new EditInputHelper()
             let dateHelper = new DateHelper()
-            if(icon.className === 'fa-solid fa-check'){
+            let editInput = document.createElement('input')
+            if(icon.className === 'fa-solid fa-check completeIcon'){
                 activity.classList.add("completed")
                 date.classList.add("dateCompleted")
                 date.classList.remove("hide")
@@ -43,17 +43,40 @@ class ActivityList{                                             //Here is the Ac
                 date.classList.remove("dateCompleted")
                 date.classList.add("hide")
                 createdDate.classList.remove("hide")
-                icon.className = 'fa-solid fa-check'
+                icon.className = 'fa-solid fa-check completeIcon'
                 btnWrapper.querySelector(".fa-solid.fa-pencil").classList.remove("invisible")
                 btnWrapper.querySelector(".fa-solid.fa-trash").classList.remove("invisible")
                 return
             }
             else if(icon.className === 'fa-solid fa-pencil'){
-                let editInput = document.createElement('input')
+                let confirmEdit = document.createElement('i')
+                confirmEdit.className = 'fa-solid fa-check'
+                confirmEdit.classList.add("confirmEditIcon")
+                let cancelEdit = document.createElement('i')
+                cancelEdit.className = 'fa-solid fa-x'
+                cancelEdit.classList.add("cancelEditIcon")
                 editHelper.setEditInputAttributes(activity.innerHTML,editInput)
-                li.appendChild(editInput)
+                activity.parentNode.prepend(editInput)
+                activity.classList.add("hide")
+                btnWrapper.prepend(cancelEdit)
+                btnWrapper.prepend(confirmEdit)
+                btnWrapper.querySelector(".fa-solid.fa-check.completeIcon").remove()
+                btnWrapper.querySelector(".fa-solid.fa-pencil").remove()
+                btnWrapper.querySelector(".fa-solid.fa-trash").classList.add("invisible")
             }
-            
+            else if(icon.className === 'fa-solid fa-check confirmEditIcon'){
+                console.log("Cliquei")
+            }
+            else if(icon.className === 'fa-solid fa-x cancelEditIcon'){
+                activity.parentNode.querySelector('input').remove()
+                activity.classList.remove("hide")
+                btnWrapper.prepend()
+                btnWrapper.querySelector(".fa-solid.fa-check.confirmEditIcon").classList.add("hide")
+                btnWrapper.querySelector(".fa-solid.fa-x.cancelEditIcon").classList.add("hide")
+                btnWrapper.querySelector(".fa-solid.fa-check.completeIcon").classList.remove("hide")
+                btnWrapper.querySelector(".fa-solid.fa-pencil").classList.remove("hide")
+                btnWrapper.querySelector(".fa-solid.fa-trash").classList.remove("invisible")
+            }
         });
     }
 

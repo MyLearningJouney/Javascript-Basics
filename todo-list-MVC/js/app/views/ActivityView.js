@@ -17,7 +17,7 @@ class ActivityView{                                                             
 
                          </div>
                          <div class="listBtnWrapper">
-                             <i class="fa-solid fa-check"></i>
+                             <i class="fa-solid fa-check completeIcon"></i>
                              <i class="fa-solid fa-pencil"></i>
                              <i class="fa-solid fa-trash"></i>
                          </div>
