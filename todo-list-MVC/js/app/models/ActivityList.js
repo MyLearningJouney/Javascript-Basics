@@ -54,7 +54,7 @@ class ActivityList{                                             //Here is the Ac
 
             }
             else if(icon.className === 'fa-solid fa-check confirmEditIcon'){
-                console.log(ActivityList.activity)
+                console.log(ActivityList)
                 return
             }
             else if(icon.className === 'fa-solid fa-x cancelEditIcon'){
