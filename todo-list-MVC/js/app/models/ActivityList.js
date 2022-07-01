@@ -12,7 +12,7 @@ class ActivityList{                                             //Here is the Ac
         this.#activities.push(activity)
     }
 
-    btnActivity(list){
+    btnActivity(list,ActivityList){
         list.addEventListener("click", function(event){
             event.preventDefault();
             let icon = event.target;
@@ -54,7 +54,7 @@ class ActivityList{                                             //Here is the Ac
 
             }
             else if(icon.className === 'fa-solid fa-check confirmEditIcon'){
-                console.log("Cliquei")
+                console.log(ActivityList.activity)
                 return
             }
             else if(icon.className === 'fa-solid fa-x cancelEditIcon'){
