@@ -13,9 +13,11 @@ class ActivityView{                                                             
                          <div class="listTextWrapper">
                              <span class="listActivity">${n.activity}</span>
                              <span class="listDate">${n.date}</span>
+                             <span class="listCreatedDate hide">${n.createdDate}</span>
+
                          </div>
                          <div class="listBtnWrapper">
-                             <i class="fa-solid fa-check"></i>
+                             <i class="fa-solid fa-check completeIcon"></i>
                              <i class="fa-solid fa-pencil"></i>
                              <i class="fa-solid fa-trash"></i>
                          </div>

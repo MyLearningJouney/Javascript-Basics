@@ -12,35 +12,62 @@ class ActivityList{                                             //Here is the Ac
         this.#activities.push(activity)
     }
 
-    btnActivity(list){
+    btnActivity(list,ActivityList){
         list.addEventListener("click", function(event){
             event.preventDefault();
             let icon = event.target;
             let btnWrapper = icon.parentNode;
             let li = btnWrapper.parentNode;
             let activity = li.querySelector(".listActivity")
-            let data = li.querySelector(".listDate")
-            if(icon.className === 'fa-solid fa-check'){
-                var createdDate = li.querySelector(".listDate").textContent;
+            let date = li.querySelector(".listDate")
+            let createdDate = li.querySelector(".listCreatedDate")
+            let editHelper = new EditInputHelper()
+            let dateHelper = new DateHelper()
+            let iconHelper = new IconHelper()
+            let editInput = document.createElement('input')
+            if(icon.className === 'fa-solid fa-check completeIcon'){
                 activity.classList.add("completed")
-                data.classList.add("dateCompleted")
-                data.textContent = new Date(Date.now())
+                date.classList.add("dateCompleted")
+                date.classList.remove("hide")
+                createdDate.classList.add("hide")
+                let completedDate = dateHelper.dateToText(new Date(Date.now()))
+                date.textContent = completedDate
                 icon.className = 'fa-solid fa-x'
-                btnWrapper.querySelector(".fa-solid.fa-pencil").classList.add("invisible")
-                btnWrapper.querySelector(".fa-solid.fa-trash").classList.add("invisible")
+                iconHelper.completeIconHidden(btnWrapper)
                 return
             }
-            if(icon.className === 'fa-solid fa-x'){
+            else if(icon.className === 'fa-solid fa-x'){
                 activity.classList.remove("completed")
-                data.classList.remove("dateCompleted")
-                console.log(createdDate)
-                //data.textContent = createdDate;
-                icon.className = 'fa-solid fa-check'
-                btnWrapper.querySelector(".fa-solid.fa-pencil").classList.remove("invisible")
-                btnWrapper.querySelector(".fa-solid.fa-trash").classList.remove("invisible")
+                date.classList.remove("dateCompleted")
+                date.classList.add("hide")
+                createdDate.classList.remove("hide")
+                icon.className = 'fa-solid fa-check completeIcon'
+                iconHelper.cancelCompleteIconHidden(btnWrapper)
                 return
             }
-            
+            else if(icon.className === 'fa-solid fa-pencil'){
+                editHelper.setEditInputAttributes(activity.innerHTML,editInput)
+                activity.parentNode.prepend(editInput)
+                activity.classList.add("hide")
+                iconHelper.createEditIcon(btnWrapper)
+                return
+
+            }
+            else if(icon.className === 'fa-solid fa-check confirmEditIcon'){
+                console.log(ActivityList)
+                return
+            }
+            else if(icon.className === 'fa-solid fa-x cancelEditIcon'){
+                activity.parentNode.querySelector('input').remove()
+                activity.classList.remove("hide")
+                iconHelper.cancelEditRemoveIcon(btnWrapper)
+                iconHelper.createIcon(btnWrapper)
+                return
+            }
+            else if(icon.className === 'fa-solid fa-trash'){
+                li.remove()
+                return
+            }
         });
     }
 
@@ -48,6 +75,7 @@ class ActivityList{                                             //Here is the Ac
     get activities(){
         return this.#activities;
     }
+
     
 
 }
