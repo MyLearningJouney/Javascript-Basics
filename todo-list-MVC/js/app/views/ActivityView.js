@@ -31,6 +31,7 @@ class ActivityView{
         li.classList.add('listItem')
         li.innerHTML = this.template(ActivityList)
         this.#list.append(li)
-
+        console.log(this.#list.children)
+        li.addEventListener("click", IconListner.iconListner)
     }
 }

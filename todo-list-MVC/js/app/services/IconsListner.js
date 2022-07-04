@@ -1,10 +1,8 @@
 class IconListner{
 
-    iconListner(event, activities){
+    static iconListner(event){
         event.preventDefault();
-        let icon = event.target
-        let btnWrapper = icon.parentNode;
-        let li = btnWrapper.parentNode;
+        console.log(event.target)
     }
 
 }

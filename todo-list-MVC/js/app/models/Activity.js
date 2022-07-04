@@ -1,25 +1,36 @@
 class Activity{
 
-    #activity;
-    #activityType;
-    #createdDate;
-    #completedDate;
-    #icons;
+   #id;
+   #activity;
+   #activityType;
+   #createdDate;
+   #completedDate;
+   #icons;
 
-    constructor(activity) {
+   static idCounter = 0
 
-        this.#activity = activity
-        this.#activityType = 'new'
-        this.#createdDate = new DateHelper().dateToText(new Date(Date.now()));
-        this.#completedDate = ''
-        this.#icons = ListIconsFactory.createIcon(this.#activityType);
+   constructor(activity) {
 
-     }
+      this.#id = Activity.idCounter++
+      this.#activity = activity
+      this.#activityType = 'new'
+      this.#createdDate = new DateHelper().dateToText(new Date(Date.now()));
+      this.#completedDate = ''
+      this.#icons = ListIconsFactory.createIcon(this.#activityType);
+
+   }
 
 
 
 
 
+   get id(){
+      return this.#id;
+   }
+
+
+
+   
      get activity(){
         return this.#activity;
      }
@@ -27,15 +38,15 @@ class Activity{
 
 
 
-     get activityType(){
+   get activityType(){
       return this.#activityType;
    }
 
-     set activityType(str){
-         if(str.match(/^(new|editing|complete)$/)){
-            return this.#activityType = str
-      }  else
-            throw 'The ActivityType is invalid.'
+   set activityType(str){
+      if(str.match(/^(new|editing|complete)$/)){
+         return this.#activityType = str
+   }  else
+         throw 'The ActivityType is invalid.'
    };
 
 
