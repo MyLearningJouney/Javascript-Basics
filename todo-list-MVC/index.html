@@ -1,1 +1,53 @@
-
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-Do List MVC</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="/todo-list-MVC/css/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>To-Do List with Model-View-Controller</h1>
+    </header>
+    <section>
+      <div id="todolistView">
+        <ul id="todolist"></ul>
+      </div>
+      <form class="form" onsubmit="ac.insertActivity(event)">
+        <div>
+          <input
+            type="text"
+            name="insert-list"
+            id="insert-list"
+            placeholder="What you have to do today ?"
+          />
+          <button class="addBtn" type="submit">
+            <i class="fa-solid fa-check"></i>
+          </button>
+        </div>
+      </form>
+    </section>
+    <script
+      src="https://kit.fontawesome.com/25f73b9bfe.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="/todo-list-MVC/js/app/helper/EditInputHelper.js"></script>
+    <script src="/todo-list-MVC/js/app/helper/DateHelper.js"></script>
+    <script src="/todo-list-MVC/js/app/helper/IconHelper.js"></script>
+    <script src="/todo-list-MVC/js/app/models/Activity.js"></script>
+    <script src="/todo-list-MVC/js/app/controllers/ActivityController.js"></script>
+    <script src="/todo-list-MVC/js/app/models/ActivityList.js"></script>
+    <script src="/todo-list-MVC/js/app/views/ActivityView.js"></script>
+    <script>
+      let ac = new ActivityController();
+    </script>
+  </body>
+</html>
