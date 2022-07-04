@@ -97,11 +97,6 @@
     justify-content:center;
   }
 
-  .fa-solid.fa-x{
-    display:flex;
-    width:33%;
-  }
-
   .completed{
     text-decoration: line-through
   }
