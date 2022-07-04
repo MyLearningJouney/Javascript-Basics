@@ -1,30 +1,70 @@
-class Activity{                                             //Here is the activity Model, the model basically is some kind of object 
-                                                            //mold, here we define the attributs of the object, and the methods. We can
-    #activity;                                              //think the model like we imagine a car. The car have some attributs like 
-    #date;
-    #createdDate;                                                   //color, size, hp and also have some methods like, how start, how drive and
-                                                            //so on;
+class Activity{
+
+    #activity;
+    #activityType;
+    #createdDate;
+    #completedDate;
+    #icons;
+
     constructor(activity) {
 
         this.#activity = activity
-        this.#createdDate = new Date(Date.now())
-        this.#date = new Date(Date.now());
+        this.#activityType = 'new'
+        this.#createdDate = new DateHelper().dateToText(new Date(Date.now()));
+        this.#completedDate = ''
+        this.#icons = ListIconsFactory.createIcon(this.#activityType);
 
      }
+
+
+
+
 
      get activity(){
         return this.#activity;
      }
 
-     get date(){
-        return `${this.#date.getDate()}/${this.#date.getMonth()}/${this.#date.getFullYear()} 
-        - ${this.#date.toLocaleString('en-us', {  weekday: 'long' })} at 
-          ${this.#date.getHours()}: ${this.#date.getMinutes()}`
-     };
 
-     get createdDate(){
-      return `${this.#date.getDate()}/${this.#date.getMonth()}/${this.#date.getFullYear()} 
-      - ${this.#date.toLocaleString('en-us', {  weekday: 'long' })} at 
-        ${this.#date.getHours()}: ${this.#date.getMinutes()}`
-   };   
-}
+
+
+     get activityType(){
+      return this.#activityType;
+   }
+
+     set activityType(str){
+         if(str.match(/^(new|editing|complete)$/)){
+            return this.#activityType = str
+      }  else
+            throw 'The ActivityType is invalid.'
+   };
+
+
+
+
+   get createdDate(){
+      return this.#createdDate
+   };
+
+
+
+
+   get completedDate(){
+      return this.#completedDate
+   }
+
+   set completedDate(date){
+      return this.#completedDate = new DateHelper(dateToText(new Date(Date.now())))
+   } 
+
+
+
+
+   get icons(){
+      return this.#icons
+   }
+
+   set icons(str){
+      return this.#icons = this.#icons.createIcon(str)
+   }
+
+};
