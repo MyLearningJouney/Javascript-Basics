@@ -25,13 +25,11 @@ class ActivityView{
          }                                                                               
      `
     };
-
     update(ActivityList){
         let li = document.createElement('li')
         li.classList.add('listItem')
         li.innerHTML = this.template(ActivityList)
         this.#list.append(li)
-        console.log(this.#list.children)
         li.addEventListener("click", IconListner.iconListner)
     }
 }
