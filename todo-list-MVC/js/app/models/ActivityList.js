@@ -2,21 +2,26 @@ class ActivityList{                                             //Here is the Ac
 
     #activities;
 
-    constructor(list){
+    constructor(){
         this.#activities = []
 
     }
 
     addActivity(activity){
         this.#activities.push(activity)
-        console.log(this.#activities)
-        console.log((Object.values(this.#activities[0].icons[0])[0]).outerHTML)
     }
+
 
     get activities(){
         return this.#activities;
     }
 
-    
+    removeActivity(id){
+        for(let i = 0; i < this.#activities.length; i++){
+            if(this.#activities[i].id == id){
+                this.#activities.splice(i,1)
+            }
+        }
+    }
 
 }

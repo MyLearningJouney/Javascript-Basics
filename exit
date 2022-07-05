@@ -1,0 +1,15 @@
+[1mdiff --cc todo-list-MVC/js/app/models/ActivityList.js[m
+[1mindex ff82b41,e91dd2a..0000000[m
+[1m--- a/todo-list-MVC/js/app/models/ActivityList.js[m
+[1m+++ b/todo-list-MVC/js/app/models/ActivityList.js[m
+[36m@@@ -11,8 -11,8 +11,8 @@@[m [mclass ActivityList[m
+      addActivity(activity){[m
+          this.#activities.push(activity)[m
+      }[m
+[31m--[m
+[31m-     completeActivity(list){[m
+[32m++    [m
+[32m+     btnActivity(list){[m
+          list.addEventListener("click", function(event){[m
+              event.preventDefault();[m
+              let icon = event.target;[m

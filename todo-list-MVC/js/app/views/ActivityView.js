@@ -28,8 +28,11 @@ class ActivityView{
     update(ActivityList){
         let li = document.createElement('li')
         li.classList.add('listItem')
+        li.classList.add(`${ActivityList.activities.slice(-1).map((n) => n.id)}`)
         li.innerHTML = this.template(ActivityList)
         this.#list.append(li)
-        li.addEventListener("click", IconListner.iconListner)
+        li.addEventListener("click", (e) => {
+            e.preventDefault();
+            IconBehavior.iconBehavior(e,ActivityList)})
     }
 }
