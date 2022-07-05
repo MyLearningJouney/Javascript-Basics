@@ -40,7 +40,5 @@ class DeleteIconFactory {
         this.deleteIcon = document.createElement('i')
         this.deleteIcon.className = 'fa-solid fa-trash'
     }
-    delete(list){
-            
-    }
+
 }
