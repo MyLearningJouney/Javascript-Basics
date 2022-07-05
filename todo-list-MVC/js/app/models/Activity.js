@@ -75,7 +75,7 @@ class Activity{
    }
 
    set icons(str){
-      return this.#icons = this.#icons.createIcon(str)
+      return this.#icons = ListIconsFactory.createIcon(str)
    }
 
 };

@@ -12,10 +12,10 @@ class ListIconsFactory{
             return icons
         }
         if(activityType == 'editing'){
-            let confirmEdit = ConfirmEditFactory();
-            let cancelEdit = CancelEditFactory();
-            let deleteIcon = new DeleteIconFactory()
-            deleteIcon.classList.add("invisible")
+            let confirmEdit = new ConfirmEditFactory();
+            let cancelEdit = new CancelEditFactory();
+            let deleteIcon = new DeleteIconFactory();
+            Object.values(deleteIcon)[0].classList.add("invisible")
             icons.push(confirmEdit)
             icons.push(cancelEdit)
             icons.push(deleteIcon)
@@ -24,7 +24,9 @@ class ListIconsFactory{
         if(activityType == 'complete'){
             let cancelIcon = new CancelCompleteIconFactory();
             let editIcon = new EditIconFactory();
+            Object.values(editIcon)[0].classList.add("invisible")
             let deleteIcon = new DeleteIconFactory();
+            Object.values(deleteIcon)[0].classList.add("invisible")
             icons.push(cancelIcon)
             icons.push(editIcon)
             icons.push(deleteIcon)
