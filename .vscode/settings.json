@@ -1,7 +1,17 @@
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+  "liveServer.settings.port": 5503
+=======
+<<<<<<< HEAD
+>>>>>>> origin/todolistFactory
   "liveServer.settings.port": 5501
 =======
   "liveServer.settings.port": 5503
+>>>>>>> origin/todolistFactory
+<<<<<<< HEAD
+=======
+>>>>>>> origin/todolistmvc3
 >>>>>>> origin/todolistFactory
 }
