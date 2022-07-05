@@ -9,8 +9,6 @@ class ActivityList{                                             //Here is the Ac
 
     addActivity(activity){
         this.#activities.push(activity)
-        console.log(this.#activities)
-        console.log((Object.values(this.#activities[0].icons[0])[0]).outerHTML)
     }
 
 
