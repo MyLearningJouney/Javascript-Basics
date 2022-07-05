@@ -5,23 +5,27 @@ class ActivityController {                                          //Here is th
 
     constructor(){
 
-        let $ = document.querySelector.bind(document);              //Create this variable to optmize the code writing, it's necessary to bind querySelector
-        this.#inputActivity = $('#insert-list');                    //to document to make sure that querySelector points to document. 
-        this.#activitiesList = new ActivityList();                  //Create new instance to Activity List
-        this.activityView = new ActivityView($('#todolist'));       //New instace to Activity View, passing the UL id to identifies where the view will show
-
+        this.#inputActivity = document.querySelector('#insert-list');
+        this.#activitiesList = new ActivityList();
+        this.activityView = new ActivityView(document.querySelector('#todolist'));
+        
     }
 
 
-    insertActivity (event){                                         //At the submit event on form, this block will run
-        event.preventDefault();                                     //Prevent the Default browser behavior
-        this.#activitiesList.addActivity(this.createActivity())     //add to activitiesList Model a new Activity Object, using the CreateActivity method from Controller
-        this.activityView.update(this.#activitiesList);             //Update the List in every event detection. In this case, on every submit.
+    insertActivity (event){
+        event.preventDefault();
+        this.#activitiesList.addActivity(this.createActivity())
+        this.activityView.update(this.#activitiesList);
+        let li = document.querySelectorAll('li')
+        li[li.length-1].addEventListener("click", e => {
+            e.preventDefault()
+            console.log(e.target)
+        })
     }
 
 
     createActivity(){
-        return new Activity(this.#inputActivity.value);             //Create new Instance of Activity Model, passing the input value 
+        return new Activity(this.#inputActivity.value);
 
     }
 }
