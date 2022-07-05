@@ -10,6 +10,10 @@ class IconBehavior{
             list.removeActivity(this.htmlId)
             this.li.remove()
         }
+        if(this.icon.className === 'fa-solid fa-pencil'){
+            list.editActivity(this.htmlId)
+            console.log(list)
+        }
     }
         
 }

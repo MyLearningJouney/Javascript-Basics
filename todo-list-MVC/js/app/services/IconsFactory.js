@@ -29,7 +29,7 @@ class ConfirmEditFactory {
 
 class CancelEditFactory {
     constructor(){
-        this.document.createElement('i')
+        this.cancelEdit = document.createElement('i')
         this.cancelEdit.className = 'fa-solid fa-x'
         this.cancelEdit.classList.add("cancelEditIcon")
     }

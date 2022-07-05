@@ -23,5 +23,15 @@ class ActivityList{                                             //Here is the Ac
             }
         }
     }
-
+    
+    editActivity(id){
+        for(let i = 0; i < this.#activities.length; i++){
+            if(this.#activities[i].id == id){
+                this.#activities[i].activityType = 'editing'
+                this.#activities[i].icons = this.#activities[i].activityType
+                console.log(this.#activities[i].activityType)
+                console.log(this.#activities[i].icons)
+            }
+        }
+    }
 }
