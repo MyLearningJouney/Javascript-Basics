@@ -13,7 +13,7 @@ class Activity{
 
       this.#id = Activity.idCounter++
       this.#activity = activity
-      this.#activityType = 'new'
+      this.#activityType = 'added'
       this.#createdDate = new DateHelper().dateToText(new Date(Date.now()));
       this.#completedDate = ''
       this.#icons = ListIconsFactory.createIcon(this.#activityType);

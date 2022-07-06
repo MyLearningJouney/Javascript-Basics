@@ -2,6 +2,12 @@ class ListIconsFactory{
 
     static createIcon(activityType){
         let icons = [];
+        if(activityType == 'added'){
+            icons.push({})
+            icons.push({})
+            icons.push({})
+            return icons
+        }
         if(activityType == 'new'){
             let completeIcon = new CompleteIconFactory();
             let editIcon = new EditIconFactory();
