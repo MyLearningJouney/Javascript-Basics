@@ -40,7 +40,6 @@ class ActivityView{
         let input = document.createElement('input')
         this.setEditInputAttributes(activityObject.activity,input)
         li.innerHTML = this.template([activityObject])
-        //li.innerHTML = this.template(a)
         li.children[0].prepend(input)
         document.querySelector('form').classList.add('hide')
     }
@@ -56,5 +55,12 @@ class ActivityView{
             required: true
         }   
         return Object.keys(attributes).forEach(key => element.setAttribute(key,attributes[key]))
+    }
+
+    cancelEditingListItem(li,activityObject,span){
+        li.querySelector('input').remove()
+        span.classList.remove("hide")
+        li.innerHTML = this.template([activityObject])
+        document.querySelector('form').classList.remove('hide')
     }
 }

@@ -47,7 +47,7 @@ class Activity{
    }
 
    set activityType(str){
-      if(str.match(/^(new|editing|complete)$/)){
+      if(str.match(/^(new|editing|complete|added)$/)){
          return this.#activityType = str
    }  else
          throw 'The ActivityType is invalid.'
