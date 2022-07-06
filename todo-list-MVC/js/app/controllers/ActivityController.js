@@ -16,7 +16,7 @@ class ActivityController {
     insertActivity (event){
         event.preventDefault();
         this.#activitiesList.addActivity(this.createActivity())
-        this.activityView.createListItem(this.#activitiesList);
+        this.activityView.createListItem(this.#activitiesList.activities);
         let li = document.querySelectorAll('li')
         li[li.length-1].addEventListener("click", e => {
             e.preventDefault()

@@ -5,8 +5,8 @@ class ActivityView{
         this.#list = list
     }
 
-    template(ActivityList){
-        return ActivityTemplates.activityTemplate(ActivityList.activities)
+    template(arrayOfActivities){
+        return ActivityTemplates.activityTemplate(arrayOfActivities)
         return`                                                                         
             ${ActivityList.activities.slice(-1).map((n) => {
                 return ` 
@@ -25,22 +25,24 @@ class ActivityView{
             }                                                                               
         `
     };
-    createListItem(ActivityList){
+    createListItem(arrayOfActivities){
         let li = document.createElement('li')
         li.classList.add('listItem')
-        li.classList.add(`${ActivityList.activities.slice(-1).map((n) => n.id)}`)
-        li.innerHTML = this.template(ActivityList)
+        li.classList.add(`${arrayOfActivities.slice(-1).map((n) => n.id)}`)
+        li.innerHTML = this.template(arrayOfActivities)
         this.#list.append(li)
         //console.log(this.#list)//html
         //console.log(ActivityList)//objeto
     }
 
-    editingListItem(li,Activity,span){
+    editingListItem(li,activityObject,span){
         span.classList.add("hide")
         let input = document.createElement('input')
-        this.setEditInputAttributes(Activity.activity,input)
-        li.innerHTML = this.template(Activity)
+        this.setEditInputAttributes(activityObject.activity,input)
+        li.innerHTML = this.template([activityObject])
+        //li.innerHTML = this.template(a)
         li.children[0].prepend(input)
+        document.querySelector('form').classList.add('hide')
     }
 
 

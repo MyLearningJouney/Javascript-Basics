@@ -1,6 +1,6 @@
 class IconBehavior{
 
-    static iconBehavior(event,list){
+    static iconBehavior(event,ActivityList){
         this.event = event
         this.icon = this.event.target
         this.btnWrapper = this.icon.parentNode;
@@ -8,13 +8,13 @@ class IconBehavior{
         this.textWrapper = this.li.children[0]
         this.text = this.textWrapper.children[0]
         this.htmlId = this.li.className.replace(/\D/g, '')
+        this.ActivityList = ActivityList
         if(this.icon.className === 'fa-solid fa-trash'){
-            list.removeActivity(this.htmlId)
+            ActivityList.removeActivity(this.htmlId)
             this.li.remove()
         }
         if(this.icon.className === 'fa-solid fa-pencil'){
-            list.editActivity(this.htmlId, this.li,this.text)
-            console.log()
+            ActivityList.editActivity(this.htmlId, this.li,this.text)
         }
     }
         
