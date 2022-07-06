@@ -26,15 +26,33 @@ class ActivityList{                                             //Here is the Ac
         }
     }
     
-    editActivity(id,li,span){
+    editActivity(id,li,span,btnWrapper){
+        console.log(this.#activities)
+        console.log(btnWrapper)
         for(let i = 0; i < this.#activities.length; i++){
             if(this.#activities[i].id == id){
                 this.#activities[i].activityType = 'editing'
-                this.#activities[i].icons = this.#activities[i].activityType
-                this.#activityView.editingListItem(li,this.#activities[i].activity,span)
-                //console.log(this.#activities[i].activity)
-                //console.log(this.#activities[i].activityType)
-                //console.log(this.#activities[i].icons)
+                this.#activityView.editingListItem(li,this.#activities[i],span)
+            }else{
+                this.#activityView.hideButtons(this.#activities,btnWrapper,id)
+            }
+        }
+    }
+
+    confirmEditActivity(id,li,span){
+        for(let i = 0; i < this.#activities.length; i++){
+            if(this.#activities[i].id == id){
+                this.#activities[i].activityType = 'added'
+                this.#activityView.confirmEditingListItem(li,this.#activities[i],span)
+            }
+        }
+    }
+
+    cancelEditActivity(id,li,span){
+        for(let i = 0; i < this.#activities.length; i++){
+            if(this.#activities[i].id == id){
+                this.#activities[i].activityType = 'added'
+                this.#activityView.cancelEditingListItem(li,this.#activities[i],span)
             }
         }
     }
