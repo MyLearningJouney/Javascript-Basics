@@ -1,9 +1,11 @@
 class ActivityList{                                             //Here is the ActivityList Model, basically how the is the To-do List
 
     #activities;
+    #activityView;
 
-    constructor(){
+    constructor(activityView){
         this.#activities = []
+        this.#activityView = activityView
 
     }
 
@@ -24,13 +26,15 @@ class ActivityList{                                             //Here is the Ac
         }
     }
     
-    editActivity(id){
+    editActivity(id,li,span){
         for(let i = 0; i < this.#activities.length; i++){
             if(this.#activities[i].id == id){
                 this.#activities[i].activityType = 'editing'
                 this.#activities[i].icons = this.#activities[i].activityType
-                console.log(this.#activities[i].activityType)
-                console.log(this.#activities[i].icons)
+                this.#activityView.editingListItem(li,this.#activities[i].activity,span)
+                //console.log(this.#activities[i].activity)
+                //console.log(this.#activities[i].activityType)
+                //console.log(this.#activities[i].icons)
             }
         }
     }

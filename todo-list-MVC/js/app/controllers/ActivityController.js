@@ -6,8 +6,9 @@ class ActivityController {                                          //Here is th
     constructor(){
 
         this.#inputActivity = document.querySelector('#insert-list');
-        this.#activitiesList = new ActivityList();
         this.activityView = new ActivityView(document.querySelector('#todolist'));
+        this.#activitiesList = new ActivityList(this.activityView);
+        
         
     }
 
@@ -15,11 +16,11 @@ class ActivityController {                                          //Here is th
     insertActivity (event){
         event.preventDefault();
         this.#activitiesList.addActivity(this.createActivity())
-        this.activityView.update(this.#activitiesList);
+        this.activityView.createListItem(this.#activitiesList);
         let li = document.querySelectorAll('li')
         li[li.length-1].addEventListener("click", e => {
             e.preventDefault()
-            console.log(e.target)
+            IconBehavior.iconBehavior(e,this.#activitiesList)
         })
     }
 
