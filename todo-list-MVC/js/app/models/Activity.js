@@ -31,9 +31,13 @@ class Activity{
 
 
    
-     get activity(){
-        return this.#activity;
-     }
+   get activity(){
+      return this.#activity;
+   }
+
+   set activity(str){
+      return this.#activity = str
+   }
 
 
 
@@ -64,7 +68,7 @@ class Activity{
    }
 
    set completedDate(date){
-      return this.#completedDate = new DateHelper(dateToText(new Date(Date.now())))
+      return this.#completedDate = new DateHelper(dateToText(date))
    } 
 
 

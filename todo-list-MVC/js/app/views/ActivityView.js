@@ -25,15 +25,33 @@ class ActivityView{
          }                                                                               
      `
     };
-    update(ActivityList){
-        console.log(ActivityList.activities)
+    createListItem(ActivityList){
         let li = document.createElement('li')
         li.classList.add('listItem')
         li.classList.add(`${ActivityList.activities.slice(-1).map((n) => n.id)}`)
         li.innerHTML = this.template(ActivityList)
         this.#list.append(li)
-        li.addEventListener("click", (e) => {
-            e.preventDefault();
-            IconBehavior.iconBehavior(e,ActivityList)})
+        //console.log(this.#list)//html
+        //console.log(ActivityList)//objeto
+    }
+
+    editingListItem(li,activity,span){
+        span.classList.add("hide")
+        let input = document.createElement('input')
+        this.setEditInputAttributes(activity,input)
+        li.children[0].prepend(input)
+    }
+
+
+    setEditInputAttributes(str,element){
+        const attributes = {
+            type: 'text',
+            name: 'edit-input',
+            id: 'edit-input',
+            value: str,
+            autofocus: true,
+            required: true
+        }   
+        return Object.keys(attributes).forEach(key => element.setAttribute(key,attributes[key]))
     }
 }
