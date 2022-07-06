@@ -5,7 +5,6 @@ class ActivityTemplates{
             if(arrayOfActivities[i].activityType == 'added'){
                 arrayOfActivities[i].activityType = 'new'
                 arrayOfActivities[i].icons = arrayOfActivities[i].activityType
-                console.log(arrayOfActivities)
                 return`                                                                         
                 ${arrayOfActivities.slice(-1).map((activity) => {
                     return ` 
