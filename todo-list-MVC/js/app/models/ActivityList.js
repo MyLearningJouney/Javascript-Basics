@@ -31,7 +31,8 @@ class ActivityList{                                             //Here is the Ac
             if(this.#activities[i].id == id){
                 this.#activities[i].activityType = 'editing'
                 this.#activities[i].icons = this.#activities[i].activityType
-                this.#activityView.editingListItem(li,this.#activities[i].activity,span)
+                this.#activityView.editingListItem(li,this.#activities[i],span)
+                console.log(this.#activities[i])
                 //console.log(this.#activities[i].activity)
                 //console.log(this.#activities[i].activityType)
                 //console.log(this.#activities[i].icons)

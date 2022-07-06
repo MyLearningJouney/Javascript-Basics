@@ -5,7 +5,7 @@ class ActivityView{
         this.#list = list
     }
 
-    template(ActivityList){ 
+    template(ActivityList){
 
         return`                                                                         
          ${ActivityList.activities.slice(-1).map((n) => {
@@ -31,14 +31,15 @@ class ActivityView{
         li.classList.add(`${ActivityList.activities.slice(-1).map((n) => n.id)}`)
         li.innerHTML = this.template(ActivityList)
         this.#list.append(li)
+        ActivityList.activities.forEach(activity => console.log(activity.id))
         //console.log(this.#list)//html
         //console.log(ActivityList)//objeto
     }
 
-    editingListItem(li,activity,span){
+    editingListItem(li,Activity,span){
         span.classList.add("hide")
         let input = document.createElement('input')
-        this.setEditInputAttributes(activity,input)
+        this.setEditInputAttributes(Activity.activity,input)
         li.children[0].prepend(input)
     }
 

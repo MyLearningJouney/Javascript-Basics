@@ -1,6 +1,6 @@
-class ActivityController {                                          //Here is the ActivityController, here i define how the model will work inside
-                                                                    //and how it will comunicate the model with the view. 
-    #inputActivity;#activitiesList;                                //And here i put this variables in private mode for security. 
+class ActivityController {
+
+    #inputActivity;#activitiesList; 
                          
 
     constructor(){
