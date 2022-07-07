@@ -19,6 +19,9 @@ class IconBehavior{
         if(this.icon.className === 'fa-solid fa-x cancelEditIcon'){
             ActivityList.cancelEditActivity(this.htmlId, this.li,this.text)
         }
+        if(this.icon.className === 'fa-solid fa-check confirmEditIcon'){
+            ActivityList.confirmEditActivity(this.htmlId, this.li,this.text)
+        }
     }
         
 }

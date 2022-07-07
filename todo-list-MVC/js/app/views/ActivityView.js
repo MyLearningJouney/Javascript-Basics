@@ -7,24 +7,8 @@ class ActivityView{
 
     template(arrayOfActivities){
         return ActivityTemplates.activityTemplate(arrayOfActivities)
-        return`                                                                         
-            ${ActivityList.activities.slice(-1).map((n) => {
-                return ` 
-                            <div class="listTextWrapper">
-                                <span class="listActivity">${n.activity}</span>
-                                <span class="listDate">${n.createdDate}</span>
-                                <span class="listCreatedDate hide">${n.createdDate}</span>
-   
-                            </div>
-                            <div class="listBtnWrapper">
-                                ${(Object.values(n.icons[0])[0]).outerHTML}
-                                ${(Object.values(n.icons[1])[0]).outerHTML}
-                                ${(Object.values(n.icons[2])[0]).outerHTML}
-                            </div>
-                `})                                                              
-            }                                                                               
-        `
     };
+
     createListItem(arrayOfActivities){
         let li = document.createElement('li')
         li.classList.add('listItem')
@@ -44,6 +28,14 @@ class ActivityView{
         document.querySelector('form').classList.add('hide')
     }
 
+    hideButtons(activityObject,arrayOfsiblings){
+        console.log(arrayOfsiblings)
+        arrayOfsiblings.map(liElement => liElement.innerHTML = this.template([activityObject]))
+        //console.log(arrayOfsiblings[0].getElementsByClassName("listBtnWrapper"))
+        //activityObject.icons.map((icon) => Object.values(icon)[0].classList.add("hide"))
+        //console.log(Object.values(activityObject.icons[0])[0])
+    }
+
 
     setEditInputAttributes(str,element){
         const attributes = {
@@ -58,6 +50,14 @@ class ActivityView{
     }
 
     cancelEditingListItem(li,activityObject,span){
+        li.querySelector('input').remove()
+        span.classList.remove("hide")
+        li.innerHTML = this.template([activityObject])
+        document.querySelector('form').classList.remove('hide')
+    }
+
+    confirmEditingListItem(li,activityObject,span){
+        activityObject.activity = li.querySelector('input').value
         li.querySelector('input').remove()
         span.classList.remove("hide")
         li.innerHTML = this.template([activityObject])
