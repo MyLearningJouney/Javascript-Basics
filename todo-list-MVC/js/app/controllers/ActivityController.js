@@ -1,6 +1,6 @@
-class ActivityController {                                          //Here is the ActivityController, here i define how the model will work inside
-                                                                    //and how it will comunicate the model with the view. 
-    #inputActivity;#activitiesList;                                //And here i put this variables in private mode for security. 
+class ActivityController {
+
+    #inputActivity;#activitiesList; 
                          
 
     constructor(){
@@ -16,7 +16,7 @@ class ActivityController {                                          //Here is th
     insertActivity (event){
         event.preventDefault();
         this.#activitiesList.addActivity(this.createActivity())
-        this.activityView.createListItem(this.#activitiesList);
+        this.activityView.createListItem(this.#activitiesList.activities);
         let li = document.querySelectorAll('li')
         li[li.length-1].addEventListener("click", e => {
             e.preventDefault()

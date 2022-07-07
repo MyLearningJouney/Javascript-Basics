@@ -13,7 +13,7 @@ class Activity{
 
       this.#id = Activity.idCounter++
       this.#activity = activity
-      this.#activityType = 'new'
+      this.#activityType = 'added'
       this.#createdDate = new DateHelper().dateToText(new Date(Date.now()));
       this.#completedDate = ''
       this.#icons = ListIconsFactory.createIcon(this.#activityType);
@@ -47,7 +47,7 @@ class Activity{
    }
 
    set activityType(str){
-      if(str.match(/^(new|editing|complete)$/)){
+      if(str.match(/^(new|editing|complete|added)$/)){
          return this.#activityType = str
    }  else
          throw 'The ActivityType is invalid.'
