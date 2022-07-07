@@ -11,7 +11,7 @@ class ActivityTemplates{
                                 <div class="listTextWrapper">
                                     <span class="listActivity">${activity.activity}</span>
                                     <span class="listDate">${activity.createdDate}</span>
-                                    <span class="listCreatedDate hide">${activity.createdDate}</span>
+                                    <span class="listCompletedDate hide">${activity.completedDate}</span>
         
                                 </div>
                                 <div class="listBtnWrapper">
@@ -31,7 +31,7 @@ class ActivityTemplates{
                                 <div class="listTextWrapper">
                                     <span class="listActivity hide">${activity.activity}</span>
                                     <span class="listDate">${activity.createdDate}</span>
-                                    <span class="listCreatedDate hide">${activity.createdDate}</span>
+                                    <span class="listCompletedDate hide">${activity.completedDate}</span>
         
                                 </div>
                                 <div class="listBtnWrapper">
@@ -43,17 +43,18 @@ class ActivityTemplates{
                 }                                                                               
                 `
             }
-            if(arrayOfActivities[i].activityType == 'blocked'){
+            if(arrayOfActivities[i].activityType == 'complete'){
+                arrayOfActivities[i].icons = arrayOfActivities[i].activityType
                 return`                                                                         
                 ${arrayOfActivities.map((activity) => {
                     return ` 
                                 <div class="listTextWrapper">
-                                    <span class="listActivity">${activity.activity}</span>
-                                    <span class="listDate">${activity.createdDate}</span>
-                                    <span class="listCreatedDate hide">${activity.createdDate}</span>
+                                    <span class="listActivity completed">${activity.activity}</span>
+                                    <span class="listDate hide">${activity.createdDate}</span>
+                                    <span class="listCompletedDate">${activity.completedDate}</span>
         
                                 </div>
-                                <div class="listBtnWrapper hide">
+                                <div class="listBtnWrapper">
                                     ${(Object.values(activity.icons[0])[0]).outerHTML}
                                     ${(Object.values(activity.icons[1])[0]).outerHTML}
                                     ${(Object.values(activity.icons[2])[0]).outerHTML}

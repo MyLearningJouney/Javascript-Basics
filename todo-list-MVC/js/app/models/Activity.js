@@ -47,7 +47,7 @@ class Activity{
    }
 
    set activityType(str){
-      if(str.match(/^(new|editing|complete|added|blocked)$/)){
+      if(str.match(/^(new|editing|complete|added)$/)){
          return this.#activityType = str
    }  else
          throw 'The ActivityType is invalid.'
@@ -68,7 +68,7 @@ class Activity{
    }
 
    set completedDate(date){
-      return this.#completedDate = new DateHelper(dateToText(date))
+      return this.#completedDate = new DateHelper().dateToText(date)
    } 
 
 

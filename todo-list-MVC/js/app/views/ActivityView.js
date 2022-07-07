@@ -5,7 +5,7 @@ class ActivityView{
         this.#list = list
     }
 
-    template(arrayOfActivities){
+    applyTemplate(arrayOfActivities){
         return ActivityTemplates.activityTemplate(arrayOfActivities)
     };
 
@@ -14,15 +14,24 @@ class ActivityView{
         li.classList.add('listItem')
         li.classList.add(`${arrayOfActivities.slice(-1).map((n) => n.id)}`)
         console.log(arrayOfActivities)
-        li.innerHTML = this.template(arrayOfActivities.slice(-1))
+        li.innerHTML = this.applyTemplate(arrayOfActivities.slice(-1))
         this.#list.append(li)
+    }
+
+    completeListItem(li,activityObject){
+        activityObject.completedDate = new Date(Date.now())
+        li.innerHTML = this.applyTemplate([activityObject])
+    }
+
+    cancelCompleteListItem(li,activityObject){
+        li.innerHTML = this.applyTemplate([activityObject])
     }
 
     editingListItem(li,activityObject,span){
         span.classList.add("hide")
         let input = document.createElement('input')
         this.setEditInputAttributes(activityObject.activity,input)
-        li.innerHTML = this.template([activityObject])
+        li.innerHTML = this.applyTemplate([activityObject])
         li.children[0].prepend(input)
     }
 
@@ -41,7 +50,7 @@ class ActivityView{
     cancelEditingListItem(li,activityObject,span){
         li.querySelector('input').remove()
         span.classList.remove("hide")
-        li.innerHTML = this.template([activityObject])
+        li.innerHTML = this.applyTemplate([activityObject])
         document.querySelector('form').classList.remove('hide')
     }
 
@@ -49,7 +58,9 @@ class ActivityView{
         activityObject.activity = li.querySelector('input').value
         li.querySelector('input').remove()
         span.classList.remove("hide")
-        li.innerHTML = this.template([activityObject])
+        li.innerHTML = this.applyTemplate([activityObject])
         document.querySelector('form').classList.remove('hide')
     }
+
+
 }

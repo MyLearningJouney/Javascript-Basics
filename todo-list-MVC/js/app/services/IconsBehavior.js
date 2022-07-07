@@ -22,6 +22,12 @@ class IconBehavior{
         if(this.icon.className === 'fa-solid fa-check confirmEditIcon'){
             ActivityList.confirmEditActivity(this.htmlId, this.li,this.text)
         }
+        if(this.icon.className === 'fa-solid fa-check completeIcon'){
+            ActivityList.completeActivity(this.htmlId,this.li)
+        }
+        if(this.icon.className === 'fa-solid fa-x'){
+            ActivityList.cancelCompleteActivity(this.htmlId,this.li)
+        }
     }
         
 }

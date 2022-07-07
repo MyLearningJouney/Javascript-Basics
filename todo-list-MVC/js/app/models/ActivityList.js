@@ -25,6 +25,24 @@ class ActivityList{                                             //Here is the Ac
             }
         }
     }
+
+    completeActivity(id,li){
+        for(let i = 0; i < this.#activities.length; i++){
+            if(this.#activities[i].id == id){
+                this.#activities[i].activityType = 'complete'
+                this.#activityView.completeListItem(li,this.#activities[i])
+            }
+        }
+    }
+
+    cancelCompleteActivity(id,li){
+        for(let i = 0; i < this.#activities.length; i++){
+            if(this.#activities[i].id == id){
+                this.#activities[i].activityType = 'added'
+                this.#activityView.cancelCompleteListItem(li,this.#activities[i])
+            }
+        }
+    }
     
     editActivity(id,li,span){
         for(let i = 0; i < this.#activities.length; i++){
@@ -44,6 +62,7 @@ class ActivityList{                                             //Here is the Ac
         }
 
     }
+
     confirmEditActivity(id,li,span){
         for(let i = 0; i < this.#activities.length; i++){
             if(this.#activities[i].id == id){
