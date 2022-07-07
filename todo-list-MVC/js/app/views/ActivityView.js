@@ -13,6 +13,7 @@ class ActivityView{
         let li = document.createElement('li')
         li.classList.add('listItem')
         li.classList.add(`${arrayOfActivities.slice(-1).map((n) => n.id)}`)
+        console.log(arrayOfActivities)
         li.innerHTML = this.template(arrayOfActivities)
         this.#list.append(li)
         //console.log(this.#list)//html
@@ -29,11 +30,15 @@ class ActivityView{
     }
 
     hideButtons(activityObject,arrayOfsiblings){
-        console.log(arrayOfsiblings)
+        //console.log(arrayOfsiblings)
         arrayOfsiblings.map(liElement => liElement.innerHTML = this.template([activityObject]))
         //console.log(arrayOfsiblings[0].getElementsByClassName("listBtnWrapper"))
         //activityObject.icons.map((icon) => Object.values(icon)[0].classList.add("hide"))
         //console.log(Object.values(activityObject.icons[0])[0])
+    }
+
+    showButtons(activityObject,arrayOfsiblings){
+        arrayOfsiblings.map(liElement => liElement.innerHTML = this.template([activityObject]))
     }
 
 
