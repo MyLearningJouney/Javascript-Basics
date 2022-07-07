@@ -5,46 +5,51 @@ class ActivityView{
         this.#list = list
     }
 
-    template(arrayOfActivities){
+    applyTemplate(arrayOfActivities){
         return ActivityTemplates.activityTemplate(arrayOfActivities)
     };
-
 
     createListItem(arrayOfActivities){
         let li = document.createElement('li')
         li.classList.add('listItem')
         li.classList.add(`${arrayOfActivities.slice(-1).map((n) => n.id)}`)
-        li.innerHTML = this.template(arrayOfActivities)
+        console.log(arrayOfActivities)
+        li.innerHTML = this.applyTemplate(arrayOfActivities.slice(-1))
         this.#list.append(li)
-        //console.log(this.#list)//html
-        //console.log(ActivityList)//objeto
+        setTimeout(function() {
+            li.classList.add("show")
+          }, 50);
+    }
+
+    deleteListItem(li){
+        setTimeout(function() {
+            li.classList.remove("show");
+          }, 10);
+        setTimeout(function() {
+            li.remove()
+        }, 500);
+          
+
+    }
+
+    completeListItem(li,activityObject){
+        li.classList.add("completedActivity")
+        activityObject.completedDate = new Date(Date.now())
+        li.innerHTML = this.applyTemplate([activityObject])
+    }
+
+    cancelCompleteListItem(li,activityObject){
+        li.classList.remove("completedActivity")
+        li.innerHTML = this.applyTemplate([activityObject])
     }
 
     editingListItem(li,activityObject,span){
         span.classList.add("hide")
         let input = document.createElement('input')
         this.setEditInputAttributes(activityObject.activity,input)
-        li.innerHTML = this.template([activityObject])
+        li.innerHTML = this.applyTemplate([activityObject])
         li.children[0].prepend(input)
-        document.querySelector('form').classList.add('hide')
     }
-
-    hideButtons(arrayOfActivities,btnWrapper,id){
-        for(let i = 0; i < arrayOfActivities.length; i++){
-            if(arrayOfActivities[i].id != id){
-                console.log(Object.values(arrayOfActivities[i].icons[0]))
-                return
-            }
-        }
-        //console.log(btnWrapper)
-        //console.log("Oi")
-        //btnWrapper.classList = 'hide'
-    }
-    
-    showButtons(btnWrapper){
-        btnWrapper.classList.remove('hide')
-    }
-
 
     setEditInputAttributes(str,element){
         const attributes = {
@@ -58,18 +63,20 @@ class ActivityView{
         return Object.keys(attributes).forEach(key => element.setAttribute(key,attributes[key]))
     }
 
-    confirmEditingListItem(li,activityObject,span){
-        console.log(activityObject)
-        activityObject.activity = li.querySelector('input').value
-        span.classList.remove("hide")
-        li.innerHTML = this.template([activityObject])
-        document.querySelector('form').classList.remove('hide')
-    }
-
     cancelEditingListItem(li,activityObject,span){
         li.querySelector('input').remove()
         span.classList.remove("hide")
-        li.innerHTML = this.template([activityObject])
+        li.innerHTML = this.applyTemplate([activityObject])
         document.querySelector('form').classList.remove('hide')
     }
+
+    confirmEditingListItem(li,activityObject,span){
+        activityObject.activity = li.querySelector('input').value
+        li.querySelector('input').remove()
+        span.classList.remove("hide")
+        li.innerHTML = this.applyTemplate([activityObject])
+        document.querySelector('form').classList.remove('hide')
+    }
+
+
 }

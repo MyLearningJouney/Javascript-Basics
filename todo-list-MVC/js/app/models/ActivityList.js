@@ -9,8 +9,8 @@ class ActivityList{                                             //Here is the Ac
 
     }
 
-    addActivity(activity){
-        this.#activities.push(activity)
+    addActivity(ObjectActivity){
+        this.#activities.push(ObjectActivity)
     }
 
 
@@ -18,32 +18,38 @@ class ActivityList{                                             //Here is the Ac
         return this.#activities;
     }
 
-    removeActivity(id){
+    removeActivity(id,li){
         for(let i = 0; i < this.#activities.length; i++){
             if(this.#activities[i].id == id){
                 this.#activities.splice(i,1)
-            }
-        }
-    }
-    
-    editActivity(id,li,span,btnWrapper){
-        console.log(this.#activities)
-        console.log(btnWrapper)
-        for(let i = 0; i < this.#activities.length; i++){
-            if(this.#activities[i].id == id){
-                this.#activities[i].activityType = 'editing'
-                this.#activityView.editingListItem(li,this.#activities[i],span)
-            }else{
-                this.#activityView.hideButtons(this.#activities,btnWrapper,id)
+                this.#activityView.deleteListItem(li)
             }
         }
     }
 
-    confirmEditActivity(id,li,span){
+    completeActivity(id,li){
+        for(let i = 0; i < this.#activities.length; i++){
+            if(this.#activities[i].id == id){
+                this.#activities[i].activityType = 'complete'
+                this.#activityView.completeListItem(li,this.#activities[i])
+            }
+        }
+    }
+
+    cancelCompleteActivity(id,li){
         for(let i = 0; i < this.#activities.length; i++){
             if(this.#activities[i].id == id){
                 this.#activities[i].activityType = 'added'
-                this.#activityView.confirmEditingListItem(li,this.#activities[i],span)
+                this.#activityView.cancelCompleteListItem(li,this.#activities[i])
+            }
+        }
+    }
+    
+    editActivity(id,li,span){
+        for(let i = 0; i < this.#activities.length; i++){
+            if(this.#activities[i].id == id){
+                this.#activities[i].activityType = 'editing'
+                this.#activityView.editingListItem(li,this.#activities[i],span)
             }
         }
     }
@@ -53,6 +59,16 @@ class ActivityList{                                             //Here is the Ac
             if(this.#activities[i].id == id){
                 this.#activities[i].activityType = 'added'
                 this.#activityView.cancelEditingListItem(li,this.#activities[i],span)
+            }
+        }
+
+    }
+
+    confirmEditActivity(id,li,span){
+        for(let i = 0; i < this.#activities.length; i++){
+            if(this.#activities[i].id == id){
+                this.#activities[i].activityType = 'added'
+                this.#activityView.confirmEditingListItem(li,this.#activities[i],span)
             }
         }
     }

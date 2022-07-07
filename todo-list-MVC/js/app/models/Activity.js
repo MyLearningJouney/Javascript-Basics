@@ -68,7 +68,7 @@ class Activity{
    }
 
    set completedDate(date){
-      return this.#completedDate = new DateHelper(dateToText(date))
+      return this.#completedDate = new DateHelper().dateToText(date)
    } 
 
 
