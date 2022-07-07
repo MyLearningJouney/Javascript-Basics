@@ -12,7 +12,7 @@ class IconBehavior{
 
             //-------------Completing Activity-------------//
         if(this.icon.className === 'fa-solid fa-check completeIcon'){
-            ActivityList.completeActivity(this.htmlId,this.li)
+            ActivityList.completeActivity(this.htmlId,this.li,this.text)
         }
         if(this.icon.className === 'fa-solid fa-x'){
             ActivityList.cancelCompleteActivity(this.htmlId,this.li)
