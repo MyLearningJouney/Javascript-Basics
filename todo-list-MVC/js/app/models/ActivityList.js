@@ -27,35 +27,20 @@ class ActivityList{                                             //Here is the Ac
     }
     
     editActivity(id,li,span){
-        //let arrayOfsiblings = []
         for(let i = 0; i < this.#activities.length; i++){
             if(this.#activities[i].id == id){
                 this.#activities[i].activityType = 'editing'
                 this.#activityView.editingListItem(li,this.#activities[i],span)
             }
-            //else{
-            //    console.log('Pegou as outras listas')
-            //    arrayOfsiblings.push(li.parentNode.children.item(this.#activities[i].id))
-                //console.log(arrayOfsiblings)
-            //    this.#activities[i].activityType = 'blocked'
-            //    this.#activityView.hideButtons(this.#activities[i],arrayOfsiblings)
-            //}
         }
     }
 
     cancelEditActivity(id,li,span){
-        //console.log(this.#activities)
-        //let arrayOfsiblings = []
         for(let i = 0; i < this.#activities.length; i++){
             if(this.#activities[i].id == id){
                 this.#activities[i].activityType = 'added'
                 this.#activityView.cancelEditingListItem(li,this.#activities[i],span)
             }
-            //else{
-            //    arrayOfsiblings.push(li.parentNode.children.item(this.#activities[i].id))
-            //    this.#activities[i].activityType = 'added'
-            //    this.#activityView.showButtons(this.#activities[i],arrayOfsiblings)
-            //}
         }
 
     }
