@@ -52,12 +52,12 @@
     
   }
 
-  .listCreatedDate{
+  .listCompletedDate{
     display:flex;
     font-size:12px;
   }
 
-  .dateCompleted::before{
+  .listCompletedDate::before{
     display:flex;
     font-size:12px;
     margin-right: 3px;
