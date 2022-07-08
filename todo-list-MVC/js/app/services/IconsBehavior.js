@@ -10,15 +10,20 @@ class IconBehavior{
         this.htmlId = this.li.className.replace(/\D/g, '')
         this.ActivityList = ActivityList
 
-            //-------------Completing Activity-------------//
+
+        //-------------Completing Activity-------------//
+
         if(this.icon.className === 'fa-solid fa-check completeIcon'){
-            ActivityList.completeActivity(this.htmlId,this.li,this.text)
+            ActivityList.completeActivity(this.htmlId,this.li)
         }
         if(this.icon.className === 'fa-solid fa-x'){
             ActivityList.cancelCompleteActivity(this.htmlId,this.li)
         }
 
-            //-------------Editing Activity-------------//
+
+
+        //-------------Editing Activity-------------//
+
         if(this.icon.className === 'fa-solid fa-pencil'){
             ActivityList.editActivity(this.htmlId, this.li,this.text)
         }
@@ -29,7 +34,10 @@ class IconBehavior{
             ActivityList.confirmEditActivity(this.htmlId, this.li,this.text)
         }
 
-            //-------------Deleting Activity-------------//
+
+
+        //-------------Deleting Activity-------------//
+
         if(this.icon.className === 'fa-solid fa-trash'){
             ActivityList.removeActivity(this.htmlId,this.li)
         }

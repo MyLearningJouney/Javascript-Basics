@@ -6,7 +6,8 @@ class ActivityView{
     }
 
 
-            //-------------Creating Activity-------------//
+
+    //-------------Creating Activity-------------//
 
     createListItem(arrayOfActivities){
         let li = document.createElement('li')
@@ -20,7 +21,9 @@ class ActivityView{
           }, 50);
     }
 
-            //-------------Completing Activity-------------//
+
+
+    //-------------Completing Activity-------------//
 
     completeListItem(li,activityObject){
         li.classList.add("completedActivity")
@@ -33,7 +36,9 @@ class ActivityView{
         li.innerHTML = this.applyTemplate([activityObject])
     }
 
-            //-------------Editing Activity-------------//
+
+
+    //-------------Editing Activity-------------//
 
     editingListItem(li,activityObject,span){
         span.classList.add("hide")
@@ -41,6 +46,8 @@ class ActivityView{
         this.setEditInputAttributes(activityObject.activity,input)
         li.innerHTML = this.applyTemplate([activityObject])
         li.children[0].prepend(input)
+        li.classList.add("editingActivity");
+
     }
         
     setEditInputAttributes(str,element){
@@ -70,7 +77,9 @@ class ActivityView{
         document.querySelector('form').classList.remove('hide')
     }
 
-            //-------------Deleting Activity-------------//
+
+
+    //-------------Deleting Activity-------------//
 
     deleteListItem(li){
         setTimeout(function() {
@@ -78,15 +87,15 @@ class ActivityView{
           }, 10);
         setTimeout(function() {
             li.remove()
-        }, 500);
+        }, 400);
           
 
     }
 
-    
-            //-------------Applying Template-------------//
 
-    
+
+    //-------------Applying Template-------------//
+
     applyTemplate(arrayOfActivities){
         return ActivityTemplates.activityTemplate(arrayOfActivities)
     };
