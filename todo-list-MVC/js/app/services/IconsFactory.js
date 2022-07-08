@@ -1,7 +1,7 @@
 class CompleteIconFactory {
     constructor(){
         this.completeIcon = document.createElement('i')
-        this.completeIcon.className = 'fa-solid fa-check completeIcon'
+        this.completeIcon.className = 'fa-solid fa-check completeIcon'        
     }
 }
 
@@ -40,4 +40,5 @@ class DeleteIconFactory {
         this.deleteIcon = document.createElement('i')
         this.deleteIcon.className = 'fa-solid fa-trash'
     }
+    
 }

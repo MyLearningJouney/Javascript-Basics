@@ -43,5 +43,6 @@ class IconBehavior{
             ActivityList.removeActivity(this.htmlId,this.li)
 
         }
+        
     }     
 }
