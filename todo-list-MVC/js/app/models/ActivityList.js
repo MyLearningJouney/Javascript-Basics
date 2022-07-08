@@ -6,7 +6,6 @@ class ActivityList{                                             //Here is the Ac
     constructor(activityView){
         this.#activities = []
         this.#activityView = activityView
-
     }
     
     get activities(){
@@ -42,8 +41,8 @@ class ActivityList{                                             //Here is the Ac
             }
         }
     }
-    
 
+    
 
     //-------------Editing Activity-------------//
 
@@ -54,7 +53,6 @@ class ActivityList{                                             //Here is the Ac
                 this.#activityView.editingListItem(li,this.#activities[i],span)
             }
         }
-    }
 
     confirmEditActivity(id,li,span){
         for(let i = 0; i < this.#activities.length; i++){
@@ -72,7 +70,6 @@ class ActivityList{                                             //Here is the Ac
                 this.#activityView.cancelEditingListItem(li,this.#activities[i],span)
             }
         }
-
     }
 
 

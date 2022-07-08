@@ -11,6 +11,7 @@ class IconBehavior{
         this.ActivityList = ActivityList
 
 
+
         //-------------Completing Activity-------------//
 
         if(this.icon.className === 'fa-solid fa-check completeIcon'){
@@ -40,7 +41,7 @@ class IconBehavior{
 
         if(this.icon.className === 'fa-solid fa-trash'){
             ActivityList.removeActivity(this.htmlId,this.li)
+
         }
-    }
-        
+    }     
 }

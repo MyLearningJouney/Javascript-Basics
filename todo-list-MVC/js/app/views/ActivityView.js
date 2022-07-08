@@ -8,7 +8,7 @@ class ActivityView{
 
 
     //-------------Creating Activity-------------//
-
+    
     createListItem(arrayOfActivities){
         let li = document.createElement('li')
         li.classList.add('listItem')
@@ -47,9 +47,8 @@ class ActivityView{
         li.innerHTML = this.applyTemplate([activityObject])
         li.children[0].prepend(input)
         li.classList.add("editingActivity");
-
     }
-        
+       
     setEditInputAttributes(str,element){
         const attributes = {
             type: 'text',
@@ -61,14 +60,14 @@ class ActivityView{
         }   
         return Object.keys(attributes).forEach(key => element.setAttribute(key,attributes[key]))
     }
-        
+    
     cancelEditingListItem(li,activityObject,span){
         li.querySelector('input').remove()
         span.classList.remove("hide")
         li.innerHTML = this.applyTemplate([activityObject])
         document.querySelector('form').classList.remove('hide')
     }
-        
+
     confirmEditingListItem(li,activityObject,span){
         activityObject.activity = li.querySelector('input').value
         li.querySelector('input').remove()
@@ -88,8 +87,6 @@ class ActivityView{
         setTimeout(function() {
             li.remove()
         }, 400);
-          
-
     }
 
 
@@ -99,5 +96,4 @@ class ActivityView{
     applyTemplate(arrayOfActivities){
         return ActivityTemplates.activityTemplate(arrayOfActivities)
     };
-
 }
