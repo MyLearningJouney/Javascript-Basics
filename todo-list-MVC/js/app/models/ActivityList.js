@@ -53,6 +53,7 @@ class ActivityList{                                             //Here is the Ac
                 this.#activityView.editingListItem(li,this.#activities[i],span)
             }
         }
+    }
 
     confirmEditActivity(id,li,span){
         for(let i = 0; i < this.#activities.length; i++){
