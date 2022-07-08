@@ -49,7 +49,7 @@ class ActivityTemplates{
                 ${arrayOfActivities.map((activity) => {
                     return ` 
                                 <div class="listTextWrapper">
-                                    <span class="listActivity completed">${activity.activity}</span>
+                                    <span class="listActivity strike">${activity.activity}</span>
                                     <span class="listDate hide">${activity.createdDate}</span>
                                     <span class="listCompletedDate">${activity.completedDate}</span>
         
@@ -64,9 +64,7 @@ class ActivityTemplates{
                 `
             }
         }
-
     }
-
 }
 
 

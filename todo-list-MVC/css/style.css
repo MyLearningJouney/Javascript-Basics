@@ -34,6 +34,17 @@
     border-radius: 5px;
     filter: drop-shadow(1px 5px 6px rgba(187, 187, 187, 0.8));
     margin: 15px 0;
+    transition: all 0.4s ease-out;
+    opacity: 0;
+  }
+
+ .listItem.show {
+    opacity: 1;
+  }
+
+  .listItem.completedActivity{
+    background-color: #d6ecd2;
+    filter:none;
   }
 
   .listTextWrapper{
@@ -98,7 +109,18 @@
   }
 
   .completed{
-    text-decoration: line-through
+    text-decoration: line-through;
+    transition: 300ms;
+  }
+
+  @keyframes strike {
+    from { text-decoration-color: transparent; }
+    to { text-decoration-color: #000; }
+  }
+  
+  .strike {  
+    text-decoration: line-through;
+    animation: strike 0.4s linear;
   }
 
   .invisible{
