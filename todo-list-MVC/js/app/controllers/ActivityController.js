@@ -9,6 +9,9 @@ class ActivityController {
         this.activityView = new ActivityView(document.querySelector('#todolist'));
         this.#activitiesList = new ActivityList(this.activityView);
         this.addBtn = this.btnListner(document.querySelector('button'))
+        this.currentDate = this.getCurrentDate(new Date(Date.now()), document.querySelector("#date-list"))
+        //console.log(this.currentDate)
+        //console.log(document.querySelector("#date-list").value)
         
         
     }
@@ -38,5 +41,11 @@ class ActivityController {
         addBtn.addEventListener("mouseout", () => 
         addBtn.classList.remove("fa-lg")
         )
+    }
+
+    getCurrentDate(date,input){
+        date = new DateHelper().datePicker(date)
+        input.value = date
+        return date
     }
 }

@@ -13,7 +13,6 @@ class ActivityView{
         let li = document.createElement('li')
         li.classList.add('listItem')
         li.classList.add(`${arrayOfActivities.slice(-1).map((n) => n.id)}`)
-        console.log(arrayOfActivities)
         li.innerHTML = this.applyTemplate(arrayOfActivities.slice(-1))
         this.#list.append(li)
         setTimeout(function() {

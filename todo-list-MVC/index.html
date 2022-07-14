@@ -18,24 +18,30 @@
       <h1>To-Do List with Model-View-Controller</h1>
     </header>
     <section>
+      <div class="date-picker">
+        <input type="date" name="date-list" id="date-list" value="" />
+      </div>
+    </section>
+    <section>
       <div id="todolistView">
         <ul id="todolist"></ul>
       </div>
       <div class="formWrapper">
-      <form class="form" onsubmit="ac.insertActivity(event)">
-        <div class="inputBtnWrapper">
-          <input
-            type="text"
-            name="insert-list"
-            id="insert-list"
-            placeholder="What you have to do today ?"
-          />
-          <button class="addBtn" type="submit">
-            <i class="fa-solid fa-check fa-lg addBtnIcon"></i>
-          </button>
-        </div>
-      </form>
-    </div>
+        <form class="form" onsubmit="ac.insertActivity(event)">
+          <div class="inputBtnWrapper">
+            <input
+              type="text"
+              name="insert-list"
+              id="insert-list"
+              placeholder="What you have to do today ?"
+              required
+            />
+            <button class="addBtn" type="submit">
+              <i class="fa-solid fa-check fa-lg addBtnIcon"></i>
+            </button>
+          </div>
+        </form>
+      </div>
     </section>
     <script
       src="https://kit.fontawesome.com/25f73b9bfe.js"
