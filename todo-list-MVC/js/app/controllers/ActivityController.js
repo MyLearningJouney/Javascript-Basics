@@ -10,9 +10,6 @@ class ActivityController {
         this.#activitiesList = new ActivityList(this.activityView);
         this.addBtn = this.btnListner(document.querySelector('button'))
         this.currentDate = this.getCurrentDate(new Date(Date.now()), document.querySelector("#date-list"))
-        //console.log(this.currentDate)
-        //console.log(document.querySelector("#date-list").value)
-        
         
     }
 
