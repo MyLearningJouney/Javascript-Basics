@@ -8,6 +8,7 @@ class ActivityController {
         this.#inputActivity = document.querySelector('#insert-list');
         this.activityView = new ActivityView(document.querySelector('#todolist'));
         this.#activitiesList = new ActivityList(this.activityView);
+        this.addBtn = this.btnListner(document.querySelector('button'))
         
         
     }
@@ -28,5 +29,14 @@ class ActivityController {
     createActivity(){
         return new Activity(this.#inputActivity.value);
 
+    }
+
+    btnListner(addBtn){
+        addBtn.addEventListener("mouseover", () => 
+            addBtn.classList.add("fa-lg")
+        )
+        addBtn.addEventListener("mouseout", () => 
+        addBtn.classList.remove("fa-lg")
+        )
     }
 }

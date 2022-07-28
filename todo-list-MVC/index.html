@@ -21,8 +21,9 @@
       <div id="todolistView">
         <ul id="todolist"></ul>
       </div>
+      <div class="formWrapper">
       <form class="form" onsubmit="ac.insertActivity(event)">
-        <div>
+        <div class="inputBtnWrapper">
           <input
             type="text"
             name="insert-list"
@@ -30,10 +31,11 @@
             placeholder="What you have to do today ?"
           />
           <button class="addBtn" type="submit">
-            <i class="fa-solid fa-check"></i>
+            <i class="fa-solid fa-check fa-lg addBtnIcon"></i>
           </button>
         </div>
       </form>
+    </div>
     </section>
     <script
       src="https://kit.fontawesome.com/25f73b9bfe.js"
